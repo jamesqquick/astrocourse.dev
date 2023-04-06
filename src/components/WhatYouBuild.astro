@@ -1,0 +1,80 @@
+---
+import BuildSquiggles from './BuildSquiggles.astro';
+import Heading2 from './Heading2.astro';
+import { Icon } from 'astro-icon';
+---
+
+<section class="my-20 px-4 md:px-10 max-w-6xl mx-auto">
+  <div class="border-4 border-blue-950 rounded-xl relative">
+    <div class="invisible lg:visible">
+      <BuildSquiggles />
+    </div>
+    <div class="p-8 md:py-12 lg:pr-[120px]">
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div class="h-[256px] border-sky-600 border mb-4 lg:mb-0"></div>
+        <div class="">
+          <Heading2
+            text="What Will You Build?"
+            className="text-purple-500 mb-2 lg:mb-8"
+          />
+          <p class="text-xl mb-4">
+            You'll learn strategies for modern web applications with Astro by
+            building a few fully featured projects!
+          </p>
+          <ul
+            class="text-2xl flex flex-col md:flex-row gap-4 justify-between px-4 max-w-xl mx-auto"
+          >
+            <li>
+              <Icon
+                class="h-8 w-8 text-green-500 inline"
+                pack="mdi"
+                name="check-circle"
+              /> blog
+            </li>
+            <li>
+              <Icon
+                class="h-8 w-8 text-green-500 inline"
+                pack="mdi"
+                name="check-circle"
+              /> portfolio
+            </li>
+            <li>
+              <Icon
+                class="h-8 w-8 text-green-500 inline"
+                pack="mdi"
+                name="check-circle"
+              /> more
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bg-blue-950 text-purple-500 py-12 px-8">
+      <p class="text-2xl text-center mb-8 font-bold">
+        Some of the topics you'll learn
+      </p>
+      <ul
+        class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
+      >
+        <li>Static vs Dynamic Routes</li>
+        <li>SSG vs SSR</li>
+        <li>Content Collections</li>
+        <li>Astro Islands</li>
+        <li>Image Optimization</li>
+        <li>Integrations</li>
+        <li>Tailwind CSS</li>
+        <li>Types with Zod</li>
+        <li>API Endpoints</li>
+        <li>Pagination</li>
+        <li>Markdown and MDX</li>
+        <li>SEO and Meta Tags</li>
+        <li>RSS Feeds</li>
+        <li>Deploying and Hosting</li>
+        <li>Headless CMS</li>
+      </ul>
+      <!-- <p class="text-purple-600 italic text-center">
+        *For a full list of all topics covered, see below at the video list!
+      </p> -->
+    </div>
+  </div>
+</section>

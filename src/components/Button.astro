@@ -1,0 +1,23 @@
+---
+const { isLink, href, text, onClick, className = '' } = Astro.props;
+---
+
+{
+  isLink && (
+    <a
+      href={href}
+      class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold ${className}`}
+    >
+      {text}
+    </a>
+  )
+}{
+  !isLink && (
+    <button
+      class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold ${className}`}
+      onclick={onClick}
+    >
+      {text}
+    </button>
+  )
+}

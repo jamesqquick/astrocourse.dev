@@ -1,0 +1,75 @@
+---
+import { Icon } from 'astro-icon';
+import GradientWrapper from './GradientWrapper.astro';
+import Heading2 from './Heading2.astro';
+
+const cards = [
+  {
+    title: 'These People',
+    icon: 'ic:baseline-people-outline',
+    items: ['Students', 'Professional Developers'],
+  },
+  {
+    title: 'These Skills',
+    icon: 'mdi:head-lightbulb-outline',
+    items: ['Basic JavaScript', 'Framework experience (not required)'],
+  },
+  {
+    title: 'These Wants',
+    icon: 'mdi:cards-heart-outline',
+    items: [
+      'Hands-on experience',
+      'New skills for your resume',
+      'Learn something new',
+    ],
+  },
+];
+---
+
+<section
+  class="py-20 px-2 sm:px-20 bg-gradient-to-r from-blue-100 to-purple-100"
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-10">
+      <Heading2 text="Who Is This Course For?" className=" mb-4  text-black" />
+
+      <p class="text-xl max-w-4xl">
+        This course is built for <span
+          class="underline underline-offset-4 decoration-purple-500"
+          >beginner to intermediate web developers</span
+        > that want to learn more about modern rendering strategies, performance,
+        integrations, and more!
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10">
+      {
+        cards.map((card) => (
+          <GradientWrapper className="rounded-2xl lg:h-[500px] text-white">
+            <div class="bg-gray-800 px-4 py-10 rounded-2xl h-full">
+              <div class="h-32 w-32 rounded-full mx-auto mb-8 border-4 border-blue-950 flex justify-center items-center bg-gradient-to-r p-2 from-blue-800 to-purple-800">
+                <Icon name={card.icon} class="h-16 w-16" />
+              </div>
+              <p class="text-3xl sm:text-4xl font-bold">{card.title}</p>
+              <div class="h-1 w-24 bg-gradient-to-r from-blue-900 my-8 to-purple-700  lg:mx-0" />
+              <ul class="text-xl text-left ">
+                {card.items.map((item) => (
+                  <li class="mb-2 last:mb-0">
+                    <Icon
+                      class="h-8 w-8 inline text-green-500"
+                      name="mdi:check"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </GradientWrapper>
+        ))
+      }
+    </div>
+    <p class="text-lg italic text-center">
+      *Not sure if it's for you? Feel free to reach out and ask any outstanding
+      questions!
+    </p>
+  </div>
+</section>
