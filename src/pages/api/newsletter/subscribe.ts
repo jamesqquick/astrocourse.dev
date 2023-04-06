@@ -9,11 +9,8 @@ export const post: APIRoute = async (context) => {
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
-  console.log('trying for form data');
   const formData = await context.request.formData();
-  console.log(formData);
   const email = formData.get('email')?.valueOf();
-  console.log(email);
 
   if (typeof email !== 'string' || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: 'Invalid email' }), {
@@ -26,7 +23,6 @@ export const post: APIRoute = async (context) => {
       method: 'POST',
       body: formData,
     });
-    console.log(res.status);
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),
@@ -34,7 +30,6 @@ export const post: APIRoute = async (context) => {
       );
     }
     if (res.status !== 200) {
-      console.log(res);
       return new Response(JSON.stringify({ msg: 'Error' }), { status: 500 });
     }
     return new Response(JSON.stringify({ msg: 'Subscribed successfully' }), {

@@ -9,7 +9,6 @@
   let successMsg = null;
   const handleOnSubmit = async (e) => {
     const formData = new FormData(e.target);
-    console.log(email);
     if (!validateEmail(email)) {
       return (errorMsg = 'Please enter a valid email');
     }
