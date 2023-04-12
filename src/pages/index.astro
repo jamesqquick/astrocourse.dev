@@ -7,6 +7,7 @@ import WhatYouBuild from '../components/WhatYouBuild.astro';
 import WhoItsFor from '../components/WhoItsFor.astro';
 import FAQ from '../components/FAQ.astro';
 import Newsletter from '../components/Newsletter.svelte';
+import Pricing from '../components/Pricing.astro';
 
 export const prerender = true;
 ---
@@ -21,10 +22,11 @@ export const prerender = true;
       <Hero />
       <KeyTakeaways />
       <WhatYouBuild />
-      <WhoItsFor />
       <Instructor />
+      <WhoItsFor />
       <Newsletter client:load />
       <FAQ />
+      <!-- <Pricing /> -->
       <!-- <Footer /> -->
     </main>
   </body>

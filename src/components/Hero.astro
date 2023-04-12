@@ -3,29 +3,32 @@ import Button from './Button.astro';
 import GradientWrapper from './GradientWrapper.astro';
 ---
 
-<GradientWrapper>
+<div class={`bg-cover bg-[url('/Gradient-Pattern-Hatch.svg')]`}>
   <div
     class="max-w-6xl mx-auto lg:flex items-center gap-20 pt-20 pb-40 lg:py-40 px-4 sm:px-10 md:px-20"
   >
     <div class="lg:w-1/3 mb-10 lg:mb-0">
       <img
-        class="mx-auto w-[400px]"
-        src="https://placekitten.com/200/300"
-        alt="A cute kitten"
+        class="mx-auto md:w-[400px] md:max-w-xs max-w-[200px]"
+        src="/Astro-Logo.svg"
+        alt="Astro logo"
       />
     </div>
     <div class="text-white flex-1">
       <div class="mb-6 md:mb-8">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 md:mb-8 tracking-wide">
+        <h1
+          class="text-4xl md:text-6xl font-bold mb-4 md:mb-8 tracking-wide md:leading-tight"
+        >
           Build Modern Websites with Astro!
         </h1>
         <p class="text-xl md:text-2xl tracking-wider">
-          Take your web development skills to the next level with this hands-on
-          course with Astro!
+          A hands-on course to teach you how to build websites the modern way
+          using Astro!
         </p>
       </div>
-
-      <Button isLink={true} href="#newsletter" text="Start Learning Now" />
+      <div class="text-center lg:text-left">
+        <Button isLink={true} href="#newsletter" text="Start Learning Now" />
+      </div>
     </div>
   </div>
-</GradientWrapper>
+</div>

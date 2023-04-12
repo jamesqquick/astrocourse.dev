@@ -1,47 +1,70 @@
 ---
+import { Icon } from 'astro-icon';
 import Heading2 from './Heading2.astro';
-import Squiggles from './TakeawaySquiggles.astro';
 ---
 
-<section class="bg-gray-200 pb-10 lg:pb-0">
+<section
+  class="bg-gray-200 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')] pb-10 lg:pb-20"
+>
   <div class="w-full lg:w-[70%] xl:w-[60%] ml-auto">
     <div
-      class="bg-blue-950 py-20 lg:p-12 lg:pl-24 px-4 md:px-12 text-white relative self-end mb-16 lg:h-[336px] xl:flex justify-center items-center -translate-y-24 lg:-translate-y-12 mx-2 md:mx-10 lg:mx-0 rounded-lg lg:rounded-none"
+      class="bg-primary py-16 lg:p-12 px-4 md:px-12 text-white relative self-end mb-16 lg:h-[500px] lg:flex justify-center items-center -translate-y-24 lg:-translate-y-12 mx-2 md:mx-10 lg:mx-0 rounded-xl lg:rounded-none overflow-hidden lg:overflow-visible"
     >
-      <div class="invisible lg:visible">
-        <Squiggles />
-      </div>
+      <img
+        src="/Squiggle.svg"
+        class="h-[500px] absolute top-0 right-0 lg:left-[-371px] invisible lg:visible"
+        alt="Squiggle"
+      />
+      <img
+        src="/Squiggle-Dark.svg"
+        class="h-[300px] absolute top-0 right-0 -z-10 visible lg:invisible"
+        alt="Squiggle"
+      />
       <div>
         <Heading2
           className="mb-4 md:mb-10 text-center xs:text-left"
           text="Key Takeaways"
         />
-        <ul class="list-disc ml-6 text-xl md:text-2xl leading-loose">
-          <li class="md:mb-2">Rendering Strategies (SSR, SSG, etc.)</li>
-          <li class="md:mb-2">How to optimize website performance</li>
-          <li>How to work with content (Markdown, Headless CMS, etc.)</li>
+        <ul class="ml-6 text-xl md:text-2xl leading-loose">
+          <li class="mb-2 md:mb-4">
+            <Icon
+              class="h-8 w-8 text-green-500 inline -translate-x-4"
+              pack="mdi"
+              name="check-circle"
+            /> Modern Rendering Strategies (SSR, SSG, etc.)
+          </li>
+          <li class="mb-2 md:mb-4">
+            <Icon
+              class="h-8 w-8 text-green-500 inline -translate-x-4"
+              pack="mdi"
+              name="check-circle"
+            /> Website Performance and Optimization
+          </li>
+          <li>
+            <Icon
+              class="h-8 w-8 text-green-500 inline -translate-x-4"
+              pack="mdi"
+              name="check-circle"
+            /> Working with content (Markdown, Headless CMS, etc.)
+          </li>
         </ul>
       </div>
     </div>
   </div>
   <div
-    class="flex flex-col items-center gap-y-16 lg:gap-y-4 px-10 -translate-y-20 lg:-translate-y-20 max-w-6xl mx-auto"
+    class="flex flex-col items-center gap-y-40 lg:gap-y-4 px-10 -translate-y-20 lg:-translate-y-20 max-w-6xl mx-auto"
   >
     <div class={`text-center max-w-lg lg:self-start`}>
       <p class="text-9xl font-bold text-purple-600 relative text-center">4</p>
-      <p class="text-2xl text-purple-500 font-bold uppercase">hands-on demos</p>
+      <p class="text-2xl text-gray-8 00 font-bold uppercase">hands-on demos</p>
     </div>
     <div class={`text-center max-w-lg lg:self-center`}>
       <p class="text-9xl font-bold text-purple-600 relative text-center">40+</p>
-      <p class="text-2xl text-purple-500 font-bold uppercase">
-        in-depth lessons
-      </p>
+      <p class="text-2xl text-gray-800 font-bold uppercase">in-depth lessons</p>
     </div>
     <div class={`text-center max-w-lg lg:self-end`}>
-      <p class="text-9xl font-bold text-purple-600 relative text-center">40+</p>
-      <p class="text-2xl text-purple-500 font-bold uppercase">
-        Hours of video content
-      </p>
+      <p class="text-9xl font-bold text-purple-600 relative text-center">10+</p>
+      <p class="text-2xl text-gray-800 font-bold uppercase">Hours of video</p>
     </div>
   </div>
 </section>

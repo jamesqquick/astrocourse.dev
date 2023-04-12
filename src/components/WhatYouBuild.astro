@@ -1,14 +1,16 @@
 ---
 import BuildSquiggles from './BuildSquiggles.astro';
+import GradientWrapper from './GradientWrapper.astro';
 import Heading2 from './Heading2.astro';
 import { Icon } from 'astro-icon';
 ---
 
 <section class="my-20 px-4 md:px-10 max-w-6xl mx-auto">
-  <div class="border-4 border-blue-950 rounded-xl relative">
-    <div class="invisible lg:visible">
-      <BuildSquiggles />
-    </div>
+  <div class="rounded-xl relative bg-white border-8 border-blue-950">
+    <img
+      src="/Squiggle-Pattern.svg"
+      class="absolute -top-[8px] -right-[8px] w-40 invisible lg:visible"
+    />
     <div class="p-8 md:py-12 lg:pr-[120px]">
       <div class="grid lg:grid-cols-2 gap-8 items-center">
         <div class="h-[256px] border-sky-600 border mb-4 lg:mb-0"></div>
@@ -22,7 +24,7 @@ import { Icon } from 'astro-icon';
             building a few fully featured projects!
           </p>
           <ul
-            class="text-2xl flex flex-col md:flex-row gap-4 justify-between px-4 max-w-xl mx-auto"
+            class="text-xl flex flex-col md:flex-row gap-4 justify-between px-4 max-w-xl mx-auto"
           >
             <li>
               <Icon
@@ -49,9 +51,11 @@ import { Icon } from 'astro-icon';
         </div>
       </div>
     </div>
-    <div class="bg-blue-950 text-purple-500 py-12 px-8">
-      <p class="text-2xl text-center mb-8 font-bold">
-        Some of the topics you'll learn
+    <div
+      class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-12 px-8 rounded-sm"
+    >
+      <p class="text-2xl text-center mb-8 font-bold text-white">
+        Learn by building...
       </p>
       <ul
         class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"

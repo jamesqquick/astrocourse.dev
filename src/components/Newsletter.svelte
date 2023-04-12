@@ -34,7 +34,10 @@
   };
 </script>
 
-<div class="bg-gray-200 px-4 py-10" id="newsletter">
+<div
+  class="bg-gray-200 px-4 py-20 bg-cover bg-[url('/Envelope-Pattern.svg')]"
+  id="newsletter"
+>
   <div
     class={`bg-gradient-to-r p-2 from-blue-800 to-purple-800  rounded-3xl max-w-4xl mx-auto`}
   >
