@@ -45,7 +45,7 @@
       <h2
         class={`text-4xl font-bold md:text-6xl text-purple-500 mb-4 text-center`}
       >
-        Stay Up To Date
+        Don't Miss Out
       </h2>
       {#if !successMsg}
         <p class="text-white text-xl text-center mb-6">
@@ -78,7 +78,7 @@
           </div>
           <div class="mt-4 text-center">
             <button
-              class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold border-purple-700 w-full lg:w-auto`}
+              class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold border-purple-700 w-full lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
             >
               Sign Me Up!
             </button>

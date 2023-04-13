@@ -1,84 +1,99 @@
 ---
-import BuildSquiggles from './BuildSquiggles.astro';
-import GradientWrapper from './GradientWrapper.astro';
 import Heading2 from './Heading2.astro';
 import { Icon } from 'astro-icon';
 ---
 
-<section class="my-20 px-4 md:px-10 max-w-6xl mx-auto">
-  <div class="rounded-xl relative bg-white border-8 border-blue-950">
-    <img
-      src="/Squiggle-Pattern.svg"
-      class="absolute -top-[8px] -right-[8px] w-40 invisible lg:visible"
-    />
-    <div class="p-8 md:py-12 lg:pr-[120px]">
-      <div class="grid lg:grid-cols-2 gap-8 items-center">
-        <div class="h-[256px] border-sky-600 border mb-4 lg:mb-0"></div>
+<div class="bg-purple-50 py-20">
+  <section class="px-4 md:px-10 max-w-6xl mx-auto">
+    <div class="rounded-xl relative bg-white border-8 border-blue-950">
+      <img
+        src="/Squiggle-Pattern.svg"
+        class="absolute -top-[8px] -right-[8px] w-40 invisible lg:visible"
+      />
+      <div class="p-8 md:py-12 lg:pr-[120px]">
         <div class="">
-          <Heading2
-            text="What Will You Build?"
-            className="text-purple-500 mb-2 lg:mb-8"
-          />
-          <p class="text-xl mb-4">
-            You'll learn strategies for modern web applications with Astro by
-            building a few fully featured projects!
-          </p>
-          <ul
-            class="text-xl flex flex-col md:flex-row gap-4 justify-between px-4 max-w-xl mx-auto"
-          >
-            <li>
-              <Icon
-                class="h-8 w-8 text-green-500 inline"
-                pack="mdi"
-                name="check-circle"
-              /> blog
-            </li>
-            <li>
-              <Icon
-                class="h-8 w-8 text-green-500 inline"
-                pack="mdi"
-                name="check-circle"
-              /> portfolio
-            </li>
-            <li>
-              <Icon
-                class="h-8 w-8 text-green-500 inline"
-                pack="mdi"
-                name="check-circle"
-              /> more
-            </li>
-          </ul>
+          <!-- <div class="h-[256px] border-sky-600 border mb-4 lg:mb-0"></div> -->
+          <div class="">
+            <Heading2
+              text="Learn By Building"
+              className="text-purple-500 mb-2 lg:mb-8"
+            />
+            <p class="text-xl mb-4 tracking-wide leading-relaxed">
+              I'm sure you've heard it before, <em class="italic font-bold"
+                >"The best way to learn is to build"</em
+              >, and I agree 100%. In this course, you'll learn through building
+              3 different applications!
+            </p>
+            <ul class="text-xl flex flex-col gap-y-6 px-4 my-8">
+              <li>
+                <Icon
+                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  pack="mdi"
+                  name="check-circle"
+                /> fully-featured blog including tags, pagination, authentication,
+                and comments using markdown, <a
+                  href="https://xata.io/"
+                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
+                  >Xata</a
+                >, <a
+                  href="https://cloudinary.com/"
+                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
+                  >Cloudinary</a
+                >, and more
+              </li>
+              <li>
+                <Icon
+                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  pack="mdi"
+                  name="check-circle"
+                /> personal portfolio with MDX including a custom contact form using
+                API endpoints
+              </li>
+              <li>
+                <Icon
+                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  pack="mdi"
+                  name="check-circle"
+                /> event site using
+                <a
+                  href="https://storyblok.com/"
+                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
+                  >Storyblok CMS</a
+                > including internationalization and Google Maps
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-12 px-8 rounded-sm"
-    >
-      <p class="text-2xl text-center mb-8 font-bold text-white">
-        Learn by building...
-      </p>
-      <ul
-        class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
+      <div
+        class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-12 px-8 rounded-sm"
       >
-        <li>Static vs Dynamic Routes</li>
-        <li>SSG vs SSR</li>
-        <li>Content Collections</li>
-        <li>Astro Islands</li>
-        <li>Image Optimization</li>
-        <li>Integrations</li>
-        <li>Tailwind CSS</li>
-        <li>Types with Zod</li>
-        <li>API Endpoints</li>
-        <li>Pagination</li>
-        <li>Markdown and MDX</li>
-        <li>SEO and Meta Tags</li>
-        <li>RSS Feeds</li>
-        <li>Deploying and Hosting</li>
-        <li>Headless CMS</li>
-      </ul>
-      <!-- <p class="text-purple-600 italic text-center">
+        <p class="text-2xl text-center mb-8 font-bold text-white">
+          A few things you'll learn...
+        </p>
+        <ul
+          class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
+        >
+          <li>Static vs Dynamic Routes</li>
+          <li>SSG vs SSR</li>
+          <li>Content Collections</li>
+          <li>Astro Islands</li>
+          <li>Image Optimization</li>
+          <li>Integrations</li>
+          <li>Tailwind CSS</li>
+          <li>Types with Zod</li>
+          <li>API Endpoints</li>
+          <li>Pagination</li>
+          <li>Markdown and MDX</li>
+          <li>SEO and Meta Tags</li>
+          <li>RSS Feeds</li>
+          <li>Deploying and Hosting</li>
+          <li>Headless CMS</li>
+        </ul>
+        <!-- <p class="text-purple-600 italic text-center">
         *For a full list of all topics covered, see below at the video list!
-      </p> -->
+    </p> -->
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

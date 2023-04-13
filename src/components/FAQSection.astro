@@ -1,0 +1,57 @@
+---
+import { updateTSConfigForFramework } from 'astro/dist/core/config';
+import GradientWrapper from './GradientWrapper.astro';
+import Heading2 from './Heading2.astro';
+import FAQ from './FAQ.svelte';
+import type { faq } from '../utils/types';
+
+const faqs: faq[] = [
+  {
+    question: 'Is this course right for ME?',
+    answer:
+      'This course is made for beginner to intermediate JavaScript developers. The expectation is that you have basic knowledge of JavaScript and HTML/CSS.',
+  },
+  {
+    question: 'What is your refund policy?',
+    answer:
+      'We offer a 30-day money back guarantee. If you are not satisfied with the course, you can request a refund within 30 days of purchase.',
+  },
+  {
+    question: 'What kind of courrse is this?',
+    answer:
+      'This is a video course with hands-on tutorials to build 4 different demo applications with Astro. You will have access to all the videos and resources for the course as well as an exclusive Discord channel to ask questions.',
+  },
+  {
+    question: 'Is there parity pricing available?',
+    answer:
+      'Yes! We offer parity pricing. If the cost of this course is prohibitive in your country, please contact us for more information.',
+  },
+  {
+    question: 'Is there a student Discount?',
+    answer:
+      'Yes! We offer a 50% discount for students. Please send me an email with a picture of your student id.',
+  },
+  {
+    question: 'What if I need help during the course?',
+    answer: `By purchasing this course, you'll have access to a private Discord channel where you can ask questions and get help from the instructor and other students.`,
+  },
+  {
+    question: 'What if I have more questions?',
+    answer:
+      'If you have any questions that are not answered here, please contact us at me@jamesqquick.com.',
+  },
+];
+---
+
+<div class="bg-cover bg-[url('/X-Pattern-Blue.svg')] px-4 md:px-16 py-20">
+  <div class="max-w-6xl mx-auto">
+    <Heading2
+      text="Quick Questions (FAQ)"
+      className="text-white mb-10 md:mb-20 text-center"
+    />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 gap-y-10">
+      {faqs.map((faq) => <FAQ faq={faq} />)}
+    </div>
+  </div>
+</div>

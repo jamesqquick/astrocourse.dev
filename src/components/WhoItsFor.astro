@@ -12,7 +12,7 @@ const cards = [
   {
     title: 'These Skills',
     icon: 'mdi:head-lightbulb-outline',
-    items: ['JavaScript', 'Frameworks'],
+    items: ['JavaScript', 'HTML', 'CSS'],
   },
   {
     title: 'These Wants',
@@ -41,12 +41,10 @@ const cards = [
         integrations, and more!
       </p>
     </div>
-    <div
-      class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10 place-content-center"
-    >
+    <div class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10">
       {
         cards.map((card) => (
-          <GradientWrapper className="rounded-2xl lg:h-[580px] text-white max-w-lg">
+          <GradientWrapper className="rounded-2xl lg:h-[580px] text-white max-w-md mx-auto w-full md:w-[400px] lg:w-[320px] xl:w-[360px] ">
             <div class="bg-gray-800 px-8 sm:px-10 py-10 rounded-2xl h-full">
               <div class="h-32 w-32 rounded-full mx-auto mb-8 border-4 border-blue-950 flex justify-center items-center bg-gradient-to-r p-2 from-blue-800 to-purple-800">
                 <Icon name={card.icon} class="h-16 w-16" />
