@@ -23,6 +23,7 @@ export const post: APIRoute = async (context) => {
       method: 'POST',
       body: formData,
     });
+    console.info(res);
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),
