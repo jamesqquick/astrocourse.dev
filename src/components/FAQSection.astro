@@ -43,7 +43,10 @@ const faqs: faq[] = [
 ];
 ---
 
-<div class="bg-cover bg-[url('/X-Pattern-Blue.svg')] px-4 md:px-16 py-20">
+<section
+  id="faq"
+  class="bg-cover bg-[url('/X-Pattern-Blue.svg')] px-4 md:px-16 py-40"
+>
   <div class="max-w-6xl mx-auto">
     <Heading2
       text="Quick Questions (FAQ)"
@@ -54,4 +57,4 @@ const faqs: faq[] = [
       {faqs.map((faq) => <FAQ faq={faq} />)}
     </div>
   </div>
-</div>
+</section>

@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon';
+import NavLink from './NavLink.astro';
+
+const links = [
+  {
+    text: 'Overview',
+    href: '#overview',
+  },
+  {
+    text: 'What You Build',
+    href: '#whatYouBuild',
+  },
+  {
+    text: 'The Instructor',
+    href: '#theInstructor',
+  },
+  {
+    text: 'Who Is This For',
+    href: '#whoIsItFor',
+  },
+  {
+    text: 'Newsletter',
+    href: '#newsletter',
+  },
+  {
+    text: 'FAQ',
+    href: '#faq',
+  },
+];
+---
+
+<nav
+  class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10 mb-[80px] fixed bg-gradient-to-r p-2 from-blue-800 to-purple-800"
+>
+  <a
+    href="/"
+    class="text-white font-bold text-xl hover:text-brand visible"
+    aria-label="home page"
+  >
+    Astro Course
+  </a>
+  <button
+    id="hamburger"
+    aria-label="menu"
+    aria-controls="mobileMenu"
+    class="absolute right-10"
+  >
+    <Icon
+      class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer text-white"
+      name="mdi:menu"
+    />
+  </button>
+  <div
+    id="mobileMenu"
+    class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 z-10 bg-cover bg-[url('/Gradient-Pattern-Hatch.svg')] lg:bg-none overflow-hidden"
+  >
+    <div
+      class="flex flex-col lg:flex-row gap-10 lg:gap-6 text-center lg:text-left text-2xl lg:text-lg text-white"
+    >
+      <button id="close">
+        <Icon
+          class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10 hover:scale-105 transition-all"
+          name="mdi:close "
+        />
+      </button>
+
+      {links.map((link) => <NavLink href={link.href} text={link.text} />)}
+    </div>
+  </div>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const close = document.getElementById('close');
+
+    mobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      delete document.body.dataset.menuOpen;
+    });
+
+    hamburger.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.remove('hidden');
+      document.body.dataset.menuOpen = 'true';
+    });
+
+    close.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.add('hidden');
+      delete document.body.dataset.menuOpen;
+    });
+  </script>
+</nav>

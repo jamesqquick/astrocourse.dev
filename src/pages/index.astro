@@ -2,12 +2,14 @@
 import BaseHead from '../components/BaseHead.astro';
 import Hero from '../components/Hero.astro';
 import Instructor from '../components/Instructor.astro';
-import KeyTakeaways from '../components/KeyTakeaways.astro';
+
 import WhatYouBuild from '../components/WhatYouBuild.astro';
 import WhoItsFor from '../components/WhoItsFor.astro';
 import FAQSection from '../components/FAQSection.astro';
 import Newsletter from '../components/Newsletter.svelte';
 import Pricing from '../components/Pricing.astro';
+import Navbar from '../components/Navbar.astro';
+import Overview from '../components/Overview.astro';
 
 export const prerender = true;
 ---
@@ -19,8 +21,9 @@ export const prerender = true;
   </head>
   <body>
     <main>
+      <Navbar />
       <Hero />
-      <KeyTakeaways />
+      <Overview />
       <WhatYouBuild />
       <Instructor />
       <WhoItsFor />
