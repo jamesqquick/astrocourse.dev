@@ -30,7 +30,9 @@ export const post: APIRoute = async (context) => {
       );
     }
     if (res.status !== 200) {
-      return new Response(JSON.stringify({ msg: 'Error' }), { status: 500 });
+      return new Response(JSON.stringify({ msg: 'Error', res }), {
+        status: 500,
+      });
     }
     return new Response(JSON.stringify({ msg: 'Subscribed successfully' }), {
       status: 200,
