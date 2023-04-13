@@ -59,7 +59,6 @@
           > on launch day!
         </p>
         <form on:submit|preventDefault={handleOnSubmit}>
-          <input name="utf8" type="hidden" value="✓" />
           <label for="email" class="text-gray-300 font-bold block mb-1"
             >Email Address</label
           >
