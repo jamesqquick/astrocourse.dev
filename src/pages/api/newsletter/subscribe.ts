@@ -9,6 +9,7 @@ export const post: APIRoute = async (context) => {
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
+  console.log(newsletterURL);
   const formData = await context.request.formData();
   const email = formData.get('email')?.valueOf();
 
@@ -23,7 +24,6 @@ export const post: APIRoute = async (context) => {
       method: 'POST',
       body: formData,
     });
-    console.info(res);
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),
