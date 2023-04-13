@@ -37,6 +37,8 @@ export const post: APIRoute = async (context) => {
     });
   } catch (err) {
     console.error(err);
-    return new Response('Failed to subscribe', { status: 500 });
+    return new Response(JSON.stringify({ err }), {
+      status: 500,
+    });
   }
 };
