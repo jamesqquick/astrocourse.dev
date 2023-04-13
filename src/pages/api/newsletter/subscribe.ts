@@ -13,12 +13,12 @@ export const post: APIRoute = async (context) => {
   const formData = await context.request.formData();
   const email = formData.get('email')?.valueOf();
 
+  console.log(formData);
   if (typeof email !== 'string' || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: 'Invalid email' }), {
       status: 400,
     });
   }
-  console.log(formData);
   try {
     const res = await fetch(newsletterURL, {
       method: 'POST',
