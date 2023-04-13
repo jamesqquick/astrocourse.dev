@@ -18,7 +18,7 @@ export const post: APIRoute = async (context) => {
       status: 400,
     });
   }
-
+  console.log(formData);
   try {
     const res = await fetch(newsletterURL, {
       method: 'POST',
