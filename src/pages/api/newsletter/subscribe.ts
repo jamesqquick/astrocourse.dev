@@ -9,11 +9,9 @@ export const post: APIRoute = async (context) => {
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
-  console.log(newsletterURL);
   const formData = await context.request.formData();
   const email = formData.get('email')?.valueOf();
 
-  console.log(formData);
   if (typeof email !== 'string' || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: 'Invalid email' }), {
       status: 400,
@@ -30,10 +28,7 @@ export const post: APIRoute = async (context) => {
         { status: 404 }
       );
     }
-    console.log(res.status);
-    console.log(res.body);
     if (res.status !== 200) {
-      //   console.log(res);
       return new Response(
         JSON.stringify({ msg: 'Error', res: JSON.stringify(res) }),
         {
