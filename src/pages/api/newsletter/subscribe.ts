@@ -30,6 +30,7 @@ export const post: APIRoute = async (context) => {
         { status: 404 }
       );
     }
+    console.log(res.status);
     if (res.status !== 200) {
       return new Response(JSON.stringify({ msg: 'Error', res }), {
         status: 500,
