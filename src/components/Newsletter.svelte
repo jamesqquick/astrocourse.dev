@@ -61,7 +61,7 @@
       class="text-gray-300 font-bold block mb-1 sr-only"
       aria-label="Email">Email Address</label
     >
-    <div class="flex flex-col md:flex-row gap-4">
+    <div class="flex flex-col lg:flex-row gap-4">
       <input
         type="text"
         name="email"
