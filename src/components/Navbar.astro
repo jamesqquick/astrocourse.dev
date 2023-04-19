@@ -8,7 +8,7 @@ const links = [
     href: '#overview',
   },
   {
-    text: 'What You Build',
+    text: `What You'll Build`,
     href: '#whatYouBuild',
   },
   {
@@ -19,10 +19,10 @@ const links = [
     text: 'Who Is This For',
     href: '#whoIsItFor',
   },
-  {
-    text: 'Newsletter',
-    href: '#newsletter',
-  },
+  //   {
+  //     text: 'Newsletter',
+  //     href: '#newsletter',
+  //   },
   {
     text: 'FAQ',
     href: '#faq',
@@ -31,7 +31,7 @@ const links = [
 ---
 
 <nav
-  class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-10 mb-[80px] fixed bg-gradient-to-r p-2 from-blue-800 to-purple-800"
+  class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-30 mb-[80px] fixed bg-gradient-to-r p-2 to-blue-800 from-purple-800"
 >
   <a
     href="/"
@@ -43,8 +43,8 @@ const links = [
   <button
     id="hamburger"
     aria-label="menu"
-    aria-controls="mobileMenu"
-    class="absolute right-10"
+    aria-controls="menu"
+    class="absolute right-10 lg:hidden"
   >
     <Icon
       class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer text-white"
@@ -52,15 +52,15 @@ const links = [
     />
   </button>
   <div
-    id="mobileMenu"
+    id="menu"
     class="fixed lg:flex items-center justify-center lg:relative inset-0 bg-bg hidden py-5 md:py-20 lg:py-0 z-10 bg-cover bg-[url('/Gradient-Pattern-Hatch.svg')] lg:bg-none overflow-hidden"
   >
     <div
       class="flex flex-col lg:flex-row gap-10 lg:gap-6 text-center lg:text-left text-2xl lg:text-lg text-white"
     >
-      <button id="close">
+      <button id="close" class="lg:hidden">
         <Icon
-          class="inline lg:hidden h-10 w-10 hover:text-brand cursor-pointer mb-10 hover:scale-105 transition-all"
+          class="inline h-10 w-10 hover:text-brand cursor-pointer mb-10 hover:scale-105 transition-all"
           name="mdi:close "
         />
       </button>
@@ -70,24 +70,27 @@ const links = [
   </div>
   <script>
     const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const menu = document.getElementById('menu');
     const close = document.getElementById('close');
 
-    mobileMenu.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      delete document.body.dataset.menuOpen;
-    });
+    if (menu) {
+      menu.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
 
-    hamburger.addEventListener('click', () => {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.remove('hidden');
-      document.body.dataset.menuOpen = 'true';
-    });
+      if (hamburger) {
+        hamburger.addEventListener('click', () => {
+          menu.classList.remove('hidden');
+          console.log('Close it');
+          close.focus();
+        });
+      }
 
-    close.addEventListener('click', () => {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.add('hidden');
-      delete document.body.dataset.menuOpen;
-    });
+      if (close && menu) {
+        close.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      }
+    }
   </script>
 </nav>

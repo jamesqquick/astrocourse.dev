@@ -1,6 +1,16 @@
 ---
 import { Icon } from 'astro-icon';
 import Heading2 from './Heading2.astro';
+
+//TODO: more takeaways
+//TODO: refernce Discord support
+
+const takeaways = [
+  'Building performant websites by shipping less  JavaScript',
+  'Working with content Markdown content efficiently',
+  'Full-stack principles (server-side rendering and API Routes)',
+  'How to properly add authentication to your site',
+];
 ---
 
 <section
@@ -15,57 +25,68 @@ import Heading2 from './Heading2.astro';
         src="/Squiggle.svg"
         class="h-[400px] absolute top-0 right-0 lg:left-[-295px] invisible lg:visible"
         alt="Squiggle"
+        aria-hidden="true"
       />
       <img
         src="/Squiggle-Dark.svg"
-        class="h-[300px] absolute top-0 right-0 -z-10 visible lg:invisible"
+        class="h-[300px] absolute top-0 right-0 visible lg:invisible"
         alt="Squiggle"
       />
       <div>
         <Heading2
-          className="mb-4 md:mb-10 text-center xs:text-left"
+          className="mb-4 md:mb-10 text-center relative xs:text-left z-20"
           text="Key Takeaways"
         />
-        <ul class="ml-6 text-xl md:text-2xl leading-loose">
-          <li class="mb-2 md:mb-4">
-            <Icon
-              class="h-8 w-8 text-green-500 inline -translate-x-4"
-              pack="mdi"
-              name="check-circle"
-            /> Modern Rendering Strategies (SSR, SSG, etc.)
-          </li>
-          <li class="mb-2 md:mb-4">
-            <Icon
-              class="h-8 w-8 text-green-500 inline -translate-x-4"
-              pack="mdi"
-              name="check-circle"
-            /> Website Performance and Optimization
-          </li>
-          <li>
-            <Icon
-              class="h-8 w-8 text-green-500 inline -translate-x-4"
-              pack="mdi"
-              name="check-circle"
-            /> Working with content (Markdown, Headless CMS, etc.)
-          </li>
+        <ul
+          class="ml-6 text-xl md:text-2xl leading-loose flex flex-col gap-y-4 relative z-20"
+        >
+          {
+            takeaways.map((takeaway) => (
+              <li class="">
+                <Icon
+                  class="h-8 w-8 text-green-500 inline -translate-x-4"
+                  pack="mdi"
+                  name="check-circle"
+                  aria-hidden="true"
+                  alt="checkmark"
+                />
+                {` ${takeaway}`}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
   </div>
   <div
-    class="flex flex-col items-center gap-y-24 lg:gap-y-4 px-10 max-w-6xl mx-auto"
+    class="flex flex-col lg:flex-row justify-between mt-40 items-center gap-y-24 lg:gap-y-4 px-10 max-w-6xl mx-auto"
   >
-    <div class={`text-center max-w-lg lg:self-start`}>
-      <p class="text-9xl font-bold text-purple-600 relative text-center">4</p>
-      <p class="text-2xl text-gray-8 00 font-bold uppercase">hands-on demos</p>
-    </div>
-    <div class={`text-center max-w-lg lg:self-center`}>
-      <p class="text-9xl font-bold text-purple-600 relative text-center">40+</p>
-      <p class="text-2xl text-gray-800 font-bold uppercase">in-depth lessons</p>
-    </div>
-    <div class={`text-center max-w-lg lg:self-end`}>
-      <p class="text-9xl font-bold text-purple-600 relative text-center">10+</p>
-      <p class="text-2xl text-gray-800 font-bold uppercase">Hours of video</p>
-    </div>
+    <p>
+      <span
+        class="block text-9xl font-bold text-purple-700 relative text-center"
+        >3</span
+      >
+      <span class="text-2xl text-gray-8 00 font-bold uppercase"
+        >hands-on demos</span
+      >
+    </p>
+    <p>
+      <span
+        class="block text-9xl font-bold text-purple-700 relative text-center"
+        >40+</span
+      >
+      <span class="text-2xl text-gray-800 font-bold uppercase"
+        >in-depth lessons</span
+      >
+    </p>
+    <p>
+      <span
+        class="block text-9xl font-bold text-purple-700 relative text-center"
+        >10+</span
+      >
+      <span class="text-2xl text-gray-800 font-bold uppercase"
+        >Hours of video</span
+      >
+    </p>
   </div>
 </section>

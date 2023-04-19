@@ -14,6 +14,6 @@
     <p class="text-2xl lg:text-4xl font-bold text-purple-500 mb-2 lg:mb-6">
       {faq.question}
     </p>
-    <p class="text-white text-lg lg:text-xl">{faq.answer}</p>
+    <p class="text-white text-lg lg:text-xl tracking-wide">{faq.answer}</p>
   </div>
 </div>

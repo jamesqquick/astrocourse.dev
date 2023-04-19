@@ -10,6 +10,7 @@ import Newsletter from '../components/Newsletter.svelte';
 import Pricing from '../components/Pricing.astro';
 import Navbar from '../components/Navbar.astro';
 import Overview from '../components/Overview.astro';
+import NewsletterSection from '../components/NewsletterSection.astro';
 
 export const prerender = true;
 ---
@@ -27,7 +28,7 @@ export const prerender = true;
       <WhatYouBuild />
       <Instructor />
       <WhoItsFor />
-      <Newsletter client:load />
+      <NewsletterSection />
       <FAQSection />
       <!-- <Pricing /> -->
       <!-- <Footer /> -->

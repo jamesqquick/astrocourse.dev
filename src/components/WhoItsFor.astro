@@ -50,7 +50,7 @@ const cards = [
               <div class="h-32 w-32 rounded-full mx-auto mb-8 border-4 border-blue-950 flex justify-center items-center bg-gradient-to-r p-2 from-blue-800 to-purple-800">
                 <Icon name={card.icon} class="h-16 w-16" />
               </div>
-              <p class="text-2xl lg:text-4xl font-bold">{card.title}</p>
+              <h3 class="text-2xl lg:text-4xl font-bold">{card.title}</h3>
               <div class="h-1 w-24 bg-gradient-to-r from-blue-900 my-8 to-purple-700  lg:mx-0" />
               <ul class="text-xl text-left ">
                 {card.items.map((item) => (
@@ -68,9 +68,12 @@ const cards = [
         ))
       }
     </div>
-    <p class="text-lg italic text-center">
-      *Not sure if it's for you? Feel free to reach out and ask any outstanding
-      questions!
+    <p class="text-xl italic text-center">
+      *Not sure if it's for you? Send me an email at <a
+        href="mailto:me@jamesqquick.com"
+        class="cursor underline underline-offset-4 decoration-purple-500 font-bold"
+        >me@jamesqquick.com</a
+      > with any outstanding questions!
     </p>
   </div>
 </section>

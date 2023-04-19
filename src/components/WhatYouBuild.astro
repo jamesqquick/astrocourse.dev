@@ -25,41 +25,48 @@ import { Icon } from 'astro-icon';
               3 different applications!
             </p>
             <ul class="text-xl flex flex-col gap-y-6 px-4 my-8">
-              <li>
+              <li class="flex gap-x-4 items-center">
                 <Icon
-                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  class="h-8 w-8 text-green-500 inline"
                   pack="mdi"
                   name="check-circle"
-                /> fully-featured blog including tags, pagination, authentication,
-                and comments using markdown, <a
-                  href="https://xata.io/"
-                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
-                  >Xata</a
-                >, <a
-                  href="https://cloudinary.com/"
-                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
-                  >Cloudinary</a
-                >, and more
+                />
+                <span
+                  >Fully-featured <a
+                    href="https://docs.astro.build/en/guides/markdown-content/"
+                    class="text-purple-800">Markdown</a
+                  >blog including tags, pagination, authentication, and
+                  comments,
+                  <a href="https://xata.io/" class="text-purple-800">Xata</a>, <a
+                    href="https://cloudinary.com/"
+                    class="text-purple-800">Cloudinary</a
+                  >, and more</span
+                >
               </li>
-              <li>
+              <li class="flex gap-x-4 items-center">
                 <Icon
-                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  class="h-6 w-6 text-green-500 inline"
                   pack="mdi"
                   name="check-circle"
-                /> personal portfolio with MDX including a custom contact form using
-                API endpoints
+                /><span
+                  >Personal portfolio with
+                  <a
+                    href="https://docs.astro.build/en/guides/markdown-content/"
+                    class="text-purple-800">MDX</a
+                  > including a custom contact form using API endpoints</span
+                >
               </li>
-              <li>
+              <li class="flex gap-x-4 items-center">
                 <Icon
-                  class="h-5 w-5 text-green-500 inline leading-loose"
+                  class="h-6 w-6 text-green-500 inline"
                   pack="mdi"
                   name="check-circle"
-                /> event site using
-                <a
-                  href="https://storyblok.com/"
-                  class="underline decoration-secondary-purple decoration-2 underline-offset-2"
-                  >Storyblok CMS</a
-                > including internationalization and Google Maps
+                /><span
+                  >Event site using
+                  <a href="https://storyblok.com/" class="text-purple-800"
+                    >Storyblok CMS</a
+                  > including internationalization and Google Maps</span
+                >
               </li>
             </ul>
           </div>
@@ -68,9 +75,9 @@ import { Icon } from 'astro-icon';
       <div
         class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-12 px-8 rounded-sm"
       >
-        <p class="text-2xl text-center mb-8 font-bold text-white">
+        <h3 class="text-2xl text-center mb-8 font-bold text-white">
           A few things you'll learn...
-        </p>
+        </h3>
         <ul
           class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
         >
