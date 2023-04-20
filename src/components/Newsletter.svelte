@@ -8,14 +8,14 @@
   let email = '';
   let errorMsg: string | null = null;
   let successMsg: string | null = null;
-
+  let loading = false;
+  console.log('newsletter');
   const handleOnSubmit = async (e) => {
-    console.log('Submit');
-    e.preventDefault();
-    return;
+    loading = true;
     const formData = new FormData(e.target);
     if (!validateEmail(email)) {
-      return (errorMsg = 'Please enter a valid email');
+      loading = false;
+      return (errorMsg = 'Please enter a valid email.');
     }
 
     try {
@@ -35,6 +35,8 @@
       console.log(data);
     } catch (err) {
       console.error(err);
+    } finally {
+      loading = false;
     }
   };
 </script>
@@ -59,6 +61,11 @@
     method="POST"
   > -->
   <form on:submit|preventDefault={handleOnSubmit}>
+    <div class="h-6">
+      {#if errorMsg}
+        <p class="text-red-400">{errorMsg}</p>
+      {/if}
+    </div>
     <label
       for="email"
       class="text-gray-300 font-bold block mb-1 sr-only"
@@ -74,14 +81,10 @@
       />
       <button
         class={`border-2 text-white bg-purple-500 px-8 py-4 rounded-lg bg-transparent text-sm sm:text-xl md:text-2xl font-bold border-purple-700  lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
+        disabled={loading}
       >
-        {buttonText}
+        {loading ? 'Loading...' : buttonText}
       </button>
-      <!-- <div class="h-8">
-        {#if errorMsg}
-          <p class="text-red-400">{errorMsg}</p>
-        {/if}
-      </div> -->
     </div>
   </form>
 {/if}
@@ -90,6 +93,6 @@
     Subscribed! 🔥🔥
   </p>
   <p class={`text-xl  md:text-2xl text-white mb-4 text-center`}>
-    Keep an eye out for course updates and exclusive launch discount!
+    Keep an eye out for course updates and an exclusive launch discount!
   </p>
 {/if}
