@@ -8,7 +8,7 @@ export const post: APIRoute = async (context) => {
       status: 400,
     });
   }
-  const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
+  const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions?page_section_id=38032799`;
   const formData = await context.request.formData();
   const email = formData.get('email')?.valueOf();
 
@@ -18,10 +18,18 @@ export const post: APIRoute = async (context) => {
     });
   }
   try {
-    const res = await fetch(newsletterURL, {
+    const options = {
       method: 'POST',
-      body: formData,
-    });
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        name: 'Brad Garropy',
+        email: 'ffff@gmail.com',
+      }),
+    };
+
+    const res = await fetch(newsletterURL, options);
     if (res.status === 404) {
       return new Response(
         JSON.stringify({ msg: `Couldn't find that newsletter` }),
