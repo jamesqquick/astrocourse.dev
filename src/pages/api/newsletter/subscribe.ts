@@ -8,7 +8,7 @@ export const post: APIRoute = async (context) => {
       status: 400,
     });
   }
-  const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions?page_section_id=38032799`;
+  const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
   const formData = await context.request.formData();
   const email = formData.get('email')?.valueOf();
 
