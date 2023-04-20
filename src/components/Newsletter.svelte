@@ -42,12 +42,14 @@
   };
 </script>
 
-{#if heading}
-  <h2 class={`text-4xl font-bold md:text-6xl text-purple-500 mb-4 text-center`}>
-    {heading}
-  </h2>
-{/if}
 {#if !successMsg}
+  {#if heading}
+    <h2
+      class={`text-4xl font-bold md:text-6xl text-purple-500 mb-4 text-center`}
+    >
+      {heading}
+    </h2>
+  {/if}
   <p class="text-white text-left md:text-center text-xl mb-6">
     Receive <span class="underline underline-offset-4 decoration-purple-500"
       >course updates</span
@@ -90,10 +92,14 @@
   </form>
 {/if}
 {#if successMsg}
-  <p class={`text-2xl  md:text-4xl text-white text-center mb-1`}>
-    Subscribed! 🔥🔥
-  </p>
+  <h2 class={`text-4xl font-bold md:text-6xl text-purple-500 mb-4 text-center`}>
+    Success!
+  </h2>
+
   <p class={`text-xl  md:text-2xl text-white mb-4 text-center`}>
-    Keep an eye out for course updates and an exclusive launch discount!
+    You just made an amazing decision. 👏
+  </p>
+  <p class={`text-lg  md:text-xl text-white mb-4 text-center`}>
+    Keep an eye out for course updates and an exclusive launch discount! 🔥🔥
   </p>
 {/if}
