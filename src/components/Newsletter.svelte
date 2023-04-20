@@ -10,6 +10,9 @@
   let successMsg: string | null = null;
 
   const handleOnSubmit = async (e) => {
+    console.log('Submit');
+    e.preventDefault();
+    return;
     const formData = new FormData(e.target);
     if (!validateEmail(email)) {
       return (errorMsg = 'Please enter a valid email');
@@ -51,11 +54,11 @@
       >exclusive discount code</span
     > on launch day!
   </p>
-  <form
+  <!-- <form
     action="https://learn.jamesqquick.com/email_lists/515676/subscriptions"
     method="POST"
-  >
-    <!-- <form on:submit|preventDefault={handleOnSubmit} action=""> -->
+  > -->
+  <form on:submit|preventDefault={handleOnSubmit}>
     <label
       for="email"
       class="text-gray-300 font-bold block mb-1 sr-only"
