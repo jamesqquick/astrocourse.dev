@@ -9,8 +9,8 @@ export const post: APIRoute = async (context) => {
     });
   }
   const newsletterURL = `https://learn.jamesqquick.com/email_lists/${newsletterId}/subscriptions`;
-  const formData = await context.request.formData();
-  const email = formData.get('email')?.valueOf();
+
+  const { email } = await context.request.json();
 
   if (typeof email !== 'string' || !validateEmail(email)) {
     return new Response(JSON.stringify({ msg: 'Invalid email' }), {
@@ -24,8 +24,7 @@ export const post: APIRoute = async (context) => {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams({
-        name: 'Brad Garropy',
-        email: 'ffff@gmail.com',
+        email,
       }),
     };
 

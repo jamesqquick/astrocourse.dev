@@ -2,17 +2,17 @@
   import { validateEmail } from '../utils/newsletter';
 
   const newsletterId = import.meta.env.PUBLIC_NEWSLETTER_ID;
-  const subscribeURL = `/api/newsletter/subscribe?id=${newsletterId}`;
+  const subscribeURL = import.meta.env.PUBLIC_NEWSLETTER_SUBSCRIBE_URL;
   export let heading: string | null = null;
   export let buttonText: string;
   let email = '';
   let errorMsg: string | null = null;
   let successMsg: string | null = null;
   let loading = false;
-  console.log('newsletter');
-  const handleOnSubmit = async (e) => {
+
+  const handleOnSubmit = async (_: SubmitEvent) => {
     loading = true;
-    const formData = new FormData(e.target);
+
     if (!validateEmail(email)) {
       loading = false;
       return (errorMsg = 'Please enter a valid email.');
@@ -21,7 +21,7 @@
     try {
       const res = await fetch(subscribeURL, {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify({ email }),
       });
 
       if (res.status !== 200) {
@@ -36,6 +36,7 @@
     } catch (err) {
       console.error(err);
     } finally {
+      errorMsg = 'Subscribe failed. Please try again.';
       loading = false;
     }
   };
