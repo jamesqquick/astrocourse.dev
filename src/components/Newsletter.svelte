@@ -54,13 +54,10 @@
     </h2>
   {/if}
   <p class="text-white text-left md:text-center text-xl mb-6">
-    Receive <span class="underline underline-offset-4 decoration-purple-500"
-      >course updates</span
-    >
+    Receive <span class="font-bold text-purple-500">course updates</span>
     and an
-    <span class="underline underline-offset-4 decoration-purple-500"
-      >exclusive discount code</span
-    > on launch day!
+    <span class="font-bold text-purple-500">exclusive discount code</span> on launch
+    day!
   </p>
   <!-- <form
     action="https://learn.jamesqquick.com/email_lists/515676/subscriptions"
@@ -86,7 +83,7 @@
         placeholder="developer@dev.com"
       />
       <button
-        class={`border-2 text-white bg-purple-500 px-8 py-4 rounded-lg bg-transparent text-sm sm:text-xl md:text-2xl font-bold border-purple-700  lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
+        class={`border-4 text-white bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl font-bold border-purple-900  lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
         disabled={loading}
       >
         {loading ? 'Loading...' : buttonText}

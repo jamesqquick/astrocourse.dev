@@ -18,54 +18,81 @@ import { Icon } from 'astro-icon';
               text="Learn By Building"
               className="text-purple-500 mb-2 lg:mb-8"
             />
-            <p class="text-xl mb-4 tracking-wide leading-relaxed">
-              I'm sure you've heard it before, <em class="italic font-bold"
-                >"The best way to learn is to build"</em
-              >, and I agree 100%. In this course, you'll learn through building
-              3 different applications!
+            <p class="text-lg tracking-wide leading-relaxed">
+              I've taught hundreds of aspiring developers to code, and they all
+              want to know the super special secret to getting better. Here's
+              the bright side. The answer is simple and it's not a secret at
+              all.
+            </p>
+            <p
+              class="text-2xl text-purple-600 block my-10 md:my-14 text-center"
+            >
+              The best way to
+              <span
+                class="font-bold bg-purple-600 text-white px-2 py-1 rounded-md"
+                >learn</span
+              >
+              is to
+              <span
+                class="font-extrabold bg-purple-600 text-white px-2 py-1 rounded-md"
+                >build!</span
+              >
+            </p>
+            <p class="text-lg tracking-wide leading-relaxed">
+              That's why, in this course, you'll learn hands-on through building
+              several different applications!
             </p>
             <ul class="text-xl flex flex-col gap-y-6 px-4 my-8">
-              <li class="flex gap-x-4 items-center">
-                <Icon
-                  class="h-8 w-8 text-green-500 inline"
-                  pack="mdi"
-                  name="check-circle"
-                />
-                <span
-                  >Fully-featured <a
-                    href="https://docs.astro.build/en/guides/markdown-content/"
-                    class="text-purple-800">Markdown</a
-                  >blog including tags, pagination, authentication, and
-                  comments,
-                  <a href="https://xata.io/" class="text-purple-800">Xata</a>, <a
-                    href="https://cloudinary.com/"
-                    class="text-purple-800">Cloudinary</a
-                  >, and more</span
+              <li class="gap-x-4 items-center">
+                <div class="flex gap-x-2 items-center mb-1">
+                  <Icon
+                    class="h-8 w-8 text-purple-600 inline"
+                    pack="mdi"
+                    name="number-1-circle"
+                  />
+                  <span class="text-purple-600 font-bold"
+                    >Supercharged Markdown Blog</span
+                  >
+                </div>
+                <span class="block text-lg text-gray-800"
+                  >Building a basic blog is a given, but for this demo, you'll
+                  take it to the next level by adding powerful features like
+                  tags, pagination, authentication, comments, and more.</span
                 >
               </li>
-              <li class="flex gap-x-4 items-center">
-                <Icon
-                  class="h-6 w-6 text-green-500 inline"
-                  pack="mdi"
-                  name="check-circle"
-                /><span
-                  >Personal portfolio with
-                  <a
-                    href="https://docs.astro.build/en/guides/markdown-content/"
-                    class="text-purple-800">MDX</a
-                  > including a custom contact form using API endpoints</span
+              <li class="gap-x-4 items-center">
+                <div class="flex gap-x-2 items-center mb-1">
+                  <Icon
+                    class="h-8 w-8 text-purple-600 inline"
+                    pack="mdi"
+                    name="number-2-circle"
+                  />
+                  <span class="text-purple-600 font-bold"
+                    >Personal Portfolio</span
+                  >
+                </div>
+                <span class="block text-lg text-gray-800"
+                  >Experience the power of MDX by building a personal portfolio
+                  as well as a contact form using API routes with an SSR enabled
+                  Astro project.</span
                 >
               </li>
-              <li class="flex gap-x-4 items-center">
-                <Icon
-                  class="h-6 w-6 text-green-500 inline"
-                  pack="mdi"
-                  name="check-circle"
-                /><span
-                  >Event site using
-                  <a href="https://storyblok.com/" class="text-purple-800"
-                    >Storyblok CMS</a
-                  > including internationalization and Google Maps</span
+              <li class="gap-x-4 items-center">
+                <div class="flex gap-x-2 items-center mb-1">
+                  <Icon
+                    class="h-8 w-8 text-purple-600 inline"
+                    pack="mdi"
+                    name="number-3-circle"
+                  />
+                  <span class="text-purple-600 font-bold"
+                    >Modern Meetup Clone</span
+                  >
+                </div>
+                <span class="block text-lg text-gray-800"
+                  >This demo takes you beyond embedded markdown content as you
+                  incorporate Storyblok, a powerful Headless CMS. You'll also
+                  embedded maps using Google Maps as well as
+                  internationalization, and more!</span
                 >
               </li>
             </ul>
@@ -73,7 +100,7 @@ import { Icon } from 'astro-icon';
         </div>
       </div>
       <div
-        class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-12 px-8 rounded-sm"
+        class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-20 px-8 rounded-sm"
       >
         <h3 class="text-2xl text-center mb-8 font-bold text-white">
           A few things you'll learn...
@@ -81,24 +108,114 @@ import { Icon } from 'astro-icon';
         <ul
           class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
         >
-          <li>Static vs Dynamic Routes</li>
-          <li>SSG vs SSR</li>
-          <li>Content Collections</li>
-          <li>Astro Islands</li>
-          <li>Image Optimization</li>
-          <li>Integrations</li>
-          <li>Tailwind CSS</li>
-          <li>Types with Zod</li>
-          <li>API Endpoints</li>
-          <li>Pagination</li>
-          <li>Markdown and MDX</li>
-          <li>SEO and Meta Tags</li>
-          <li>RSS Feeds</li>
-          <li>Deploying and Hosting</li>
-          <li>Headless CMS</li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Static vs Dynamic Routes
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />SSG vs SSR
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Content Collections
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Astro Islands
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Image Optimization
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Integrations
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Tailwind CSS
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Types with Zod
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />API Endpoints
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Pagination
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Markdown and MDX
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />SEO and Meta Tags
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />RSS Feeds
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Deploying and Hosting
+          </li>
+          <li class="flex items-center gap-x-2">
+            <Icon
+              class="h-4 w-4 text-green-500 inline"
+              pack="mdi"
+              name="check-circle"
+            />Headless CMS
+          </li>
         </ul>
         <!-- <p class="text-purple-600 italic text-center">
-        *For a full list of all topics covered, see below at the video list!
+          *For a full list of all topics covered, see below at the video list!
     </p> -->
       </div>
     </div>

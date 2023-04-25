@@ -53,8 +53,18 @@ const faqs: faq[] = [
       className="text-white mb-10 md:mb-20 text-center"
     />
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 gap-y-10">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 gap-y-10 mb-10 md:mb-20"
+    >
       {faqs.map((faq) => <FAQ faq={faq} />)}
+    </div>
+    <div class="text-center">
+      <a
+        href="/#newsletter"
+        class={`border-4 text-white bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl font-bold border-purple-900  lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
+      >
+        Ready to get started?
+      </a>
     </div>
   </div>
 </section>

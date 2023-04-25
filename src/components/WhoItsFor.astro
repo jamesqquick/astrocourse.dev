@@ -28,21 +28,49 @@ const cards = [
 
 <section
   id="whoIsItFor"
-  class="py-20 md:py-40 px-6 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')]"
+  class="py-20 px-6 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')]"
 >
   <div class="max-w-6xl mx-auto">
     <div class="mb-10">
       <Heading2 text="Who Is This Course For?" className=" mb-4  text-black" />
 
-      <p class="text-xl max-w-4xl font-bold">
-        This course is built for <span
-          class="underline underline-offset-4 decoration-3 decoration-purple-500"
-          >beginner to intermediate web developers</span
-        > that want to learn more about modern rendering strategies, performance,
-        integrations, and more!
+      <p class="text-xl max-w-4xl">
+        This course is built for <span class="font-bold"
+          >beginner to intermediate web developers
+        </span>who have:
       </p>
+      <ul class="text-xl my-6 flex flex-col gap-y-1">
+        <li class="flex items-center gap-x-2">
+          <Icon
+            class="h-4 w-4 text-green-500 inline"
+            pack="mdi"
+            name="check-circle"
+          />fundamental knowledge of HTML, CSS, and JavaScript
+        </li>
+        <li class="flex items-center gap-x-2">
+          <Icon
+            class="h-4 w-4 text-green-500 inline"
+            pack="mdi"
+            name="check-circle"
+          />experience with a framework (encouraged but not required)
+        </li>
+        <li class="flex items-center gap-x-2">
+          <Icon
+            class="h-4 w-4 text-green-500 inline"
+            pack="mdi"
+            name="check-circle"
+          />a desire to learn new skills to put on their resume
+        </li>
+      </ul>
+      <!-- <p class="font-bold text-xl mt-6">
+        Worried it might be too much for you?
+      </p>
+      <p class="text-xl">
+        You will have access to a dedicated Discord to get all the help you
+        need!
+      </p> -->
     </div>
-    <div class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10">
+    <!-- <div class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10">
       {
         cards.map((card) => (
           <GradientWrapper className="rounded-2xl lg:h-[580px] text-white max-w-md mx-auto w-full md:w-[400px] lg:w-[320px] xl:w-[360px] ">
@@ -67,12 +95,11 @@ const cards = [
           </GradientWrapper>
         ))
       }
-    </div>
-    <p class="text-xl italic text-center">
-      *Not sure if it's for you? Send me an email at <a
+    </div> -->
+    <p class="text-xl">
+      *Still not sure if it's for you? Send me an email at <a
         href="mailto:me@jamesqquick.com"
-        class="cursor underline underline-offset-4 decoration-purple-500 font-bold"
-        >me@jamesqquick.com</a
+        class="cursor font-bold">me@jamesqquick.com</a
       > with any outstanding questions!
     </p>
   </div>
