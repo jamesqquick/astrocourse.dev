@@ -11,7 +11,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   safelist: [
     {
       pattern: /self-(start|center|end)/,

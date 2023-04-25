@@ -2,36 +2,43 @@
 import { Icon } from 'astro-icon';
 import NavLink from './NavLink.astro';
 
+export interface Props {
+  isSticky?: boolean;
+}
+const { isSticky = false } = Astro.props;
+
 const links = [
   {
     text: 'Overview',
-    href: '#overview',
+    href: '/#overview',
   },
   {
     text: `What You'll Build`,
-    href: '#whatYouBuild',
+    href: '/#whatYouBuild',
   },
   {
     text: 'The Instructor',
-    href: '#theInstructor',
+    href: '/#theInstructor',
   },
   {
     text: 'Who Is This For',
-    href: '#whoIsItFor',
+    href: '/#whoIsItFor',
   },
-  //   {
-  //     text: 'Newsletter',
-  //     href: '#newsletter',
-  //   },
   {
     text: 'FAQ',
-    href: '#faq',
+    href: '/#faq',
+  },
+  {
+    text: 'Blog',
+    href: '/blog',
   },
 ];
 ---
 
 <nav
-  class="lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-30 mb-[80px] fixed bg-gradient-to-r p-2 to-blue-800 from-purple-800"
+  class={`lg:px-20 px-1 sm:px-5 py-5 flex flex-col sm:flex-row gap-5 justify-center sm:justify-between items-center sm:items-center w-screen z-30 bg-gradient-to-r p-2 to-blue-800 from-purple-800 ${
+    isSticky && 'fixed'
+  }`}
 >
   <a
     href="/"
