@@ -8,6 +8,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Heading2 from '../../components/Heading2.astro';
 import GradientWrapper from '../../components/GradientWrapper.astro';
+import Newsletter from '../../components/Newsletter.svelte';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -17,10 +18,13 @@ const posts = (await getCollection('blog')).sort(
 <BaseLayout>
   <section>
     <h1
-      class="text-center text-4xl md:text-6xl my-20 font-bold text-purple-500"
+      class="text-center text-4xl md:text-6xl my-20 font-bold text-purple-100"
     >
-      Recent Posts
+      Blog Posts Coming Soon 👀
     </h1>
+    <div class="bg-gray-900 p-4 md:p-10 rounded-lg">
+      <Newsletter heading="Stay Up To Date" buttonText="Get Updates!" />
+    </div>
     <ul class="grid grid-cols-1 lg:gap-y-8 gap-y-6 max-w-2xl mx-auto">
       {
         posts.map((post) => (
