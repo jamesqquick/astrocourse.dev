@@ -48,7 +48,7 @@
 {#if !successMsg}
   {#if heading}
     <h2
-      class={`text-4xl font-bold md:text-6xl text-purple-500 mb-4 text-center`}
+      class={`text-2xl font-bold md:text-4xl text-purple-500 mb-4 text-center`}
     >
       {heading}
     </h2>

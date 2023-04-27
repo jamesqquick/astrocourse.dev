@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon';
 import GradientWrapper from './GradientWrapper.astro';
 import Heading2 from './Heading2.astro';
+import Newsletter from './Newsletter.svelte';
 
 const cards = [
   {
@@ -28,11 +29,11 @@ const cards = [
 
 <section
   id="whoIsItFor"
-  class="py-20 px-6 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')]"
+  class="py-20 md:py-40 px-6 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')]"
 >
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-4xl mx-auto">
     <div class="mb-10">
-      <Heading2 text="Who Is This Course For?" className=" mb-4  text-black" />
+      <Heading2 text="Who Is This Course For?" className=" mb-8  text-black" />
 
       <p class="text-xl max-w-4xl">
         This course is built for <span class="font-bold"
@@ -102,5 +103,17 @@ const cards = [
         class="cursor font-bold">me@jamesqquick.com</a
       > with any outstanding questions!
     </p>
+    <div
+      id="newsletter"
+      class={`bg-gradient-to-r p-2 from-blue-800 to-purple-800 mt-20  rounded-3xl  mx-auto`}
+    >
+      <div class="bg-gray-800 rounded-3xl py-8 px-4 md:px-8 md:py-16">
+        <Newsletter
+          heading={`Seem Like A Good Fit?`}
+          buttonText={'Join the Waitlist!'}
+          client:load
+        />
+      </div>
+    </div>
   </div>
 </section>
