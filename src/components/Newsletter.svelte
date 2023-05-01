@@ -19,7 +19,7 @@
     }
 
     try {
-      const res = await fetch(`${subscribeURL}?id=${newsletterId}`, {
+      const res = await fetch(`/api/newsletter/subscribe?id=${newsletterId}`, {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: {
