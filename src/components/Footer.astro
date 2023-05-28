@@ -1,7 +1,15 @@
 ---
+import Button from './Button.astro';
+import Section from './Section.astro';
 const today = new Date();
 ---
 
-<footer>
-  &copy; {today.getFullYear()} @jamesqquick
-</footer>
+<Section hasBg={true} hasYPadding={false}>
+  <div class="py-20">
+    <div class="flex content-center flex-col items-center mb-20">
+      <p class="text-lg mb-4">What are you waiting for?</p>
+      <Button isLink={true} href="#newsletter" text="Join the waitlist today" />
+    </div>
+    <p class="text-center opacity-80">Copyright. 2023</p>
+  </div>
+</Section>

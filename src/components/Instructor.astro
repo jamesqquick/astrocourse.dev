@@ -4,22 +4,23 @@ import selfie from '../images/selfie.jpeg';
 import GradientWrapper from './GradientWrapper.astro';
 import Heading2 from './Heading2.astro';
 import { Icon } from 'astro-icon';
+import Section from './Section.astro';
 ---
 
 <section
-  id="theInstructor"
-  class="px-10 bg-gradient-to-r from-gray-900 to-gray-800 py-20 md:py-40 text-white"
+  id="yourInstructor"
+  class="bg-violet-950 bg-opacity-60 pt-60 pb-32 text-white px-8"
 >
   <div class="max-w-6xl mx-auto">
     <Heading2
       text="Hi, I'm "
-      className="mb-16 text-center lg:text-left lg:mb-4"
+      className="mb-20  text-center lg:text-left lg:mb-4"
     >
-      <span class="text-purple-500">James Q Quick 👋</span>
+      James Q Quick 👋
     </Heading2>
 
     <div
-      class="flex flex-col lg:flex-row justify-between gap-x-10 items-center"
+      class="flex flex-col lg:flex-row justify-between gap-x-10 items-center -my-10 md:-my-4"
     >
       <div class="grow-1 order-2 lg:order-first">
         <p class="text-xl mb-10 tracking-wider">
@@ -28,18 +29,18 @@ import { Icon } from 'astro-icon';
         </p>
         <ul class="text-xl md:text-2xl flex flex-col gap-y-4">
           <li>
-            <Icon class="h-8 md:h-12 inline text-blue-500" name="mdi:dot" />
-            Taught <span class="font-bold text-purple-500">300+</span> bootcamp students
+            <Icon class="h-6 inline text-white mr-2" name="ph:check-circle" />
+            <span class="font-bold italic">300+</span> bootcamp students through
+            Launch Code
           </li>
           <li>
-            <Icon class="h-8 md:h-12 inline text-blue-500" name="mdi:dot" />
-            <span class="font-bold text-purple-500">10+ years</span> of teaching
-            developers
+            <Icon class="h-6 inline text-white mr-2" name="ph:check-circle" />
+
+            <span class="font-bold italic">10+ years</span> of teaching developers
           </li>
           <li>
-            <Icon class="h-8 md:h-12 inline text-blue-500" name="mdi:dot" />
-            <span class="font-bold text-purple-500">200,000+</span> followers on
-            social media
+            <Icon class="h-6 inline text-white mr-2" name="ph:check-circle" />
+            <span class="font-bold italic">200,000+</span> followers on social media
           </li>
         </ul>
       </div>
@@ -47,16 +48,16 @@ import { Icon } from 'astro-icon';
       <div
         class="flex flex-col items-center gap-y-4 mb-10 lg:mb-0 w-full md:min-w-[400px]"
       >
-        <GradientWrapper className="inline-block rounded-full">
+        <GradientWrapper className="inline-block rounded-full max-w-sm">
           <Image
-            class="rounded-full md:h-64 md:w-64 inline-block"
+            class="rounded-full md:h-80 md:w-80 inline-block"
             src={selfie}
-            width={400}
-            height={400}
+            width={600}
+            height={600}
             alt="James Q Quick taking a selfie"
           />
         </GradientWrapper>
-        <div>
+        <div class="flex gap-x-4">
           <a href="https://twitter.com/jamesqquick" class="">
             <Icon
               class="h-12 w-12 inline text-[#1DA1F2] hover:-translate-y-1 transition-transform"

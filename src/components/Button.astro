@@ -1,4 +1,11 @@
 ---
+export interface Props {
+  isLink?: boolean;
+  href?: string;
+  text: string;
+  onClick?: () => void;
+  className?: string;
+}
 const { isLink, href, text, onClick, className = '' } = Astro.props;
 ---
 
@@ -6,7 +13,7 @@ const { isLink, href, text, onClick, className = '' } = Astro.props;
   isLink && (
     <a
       href={href}
-      class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold ${className} `}
+      class={` text-indigo-800 px-6 py-3 rounded-lg bg-white text-sm sm:text-xl hover:scale-105 transition-transform  ${className} `}
     >
       {text}
     </a>
@@ -14,7 +21,7 @@ const { isLink, href, text, onClick, className = '' } = Astro.props;
 }{
   !isLink && (
     <button
-      class={`border-2 text-white bg-purple-500 px-8 py-2 rounded-full bg-transparent text-sm sm:text-xl md:text-2xl font-bold ${className} `}
+      class={`border-2 text-white bg-purple-500 px-6 py-3 rounded-full bg-transparent text-sm sm:text-xl  font-bold ${className} `}
       onclick={onClick}
     >
       {text}

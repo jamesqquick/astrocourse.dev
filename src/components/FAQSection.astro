@@ -1,9 +1,9 @@
 ---
 import { updateTSConfigForFramework } from 'astro/dist/core/config';
-import GradientWrapper from './GradientWrapper.astro';
-import Heading2 from './Heading2.astro';
 import FAQ from './FAQ.svelte';
 import type { faq } from '../utils/types';
+import Section from './Section.astro';
+import astroIcon from '../images/astroIcon.svg';
 
 const faqs: faq[] = [
   {
@@ -17,14 +17,9 @@ const faqs: faq[] = [
       'We offer a 30-day money-back guarantee. If you are not satisfied with the course, you can request a refund within 30 days of purchase.',
   },
   {
-    question: 'What kind of course is this?',
-    answer:
-      'This is a video course with hands-on tutorials to build 4 different demo applications with Astro. You will have access to all the videos and resources for the course as well as an exclusive Discord channel to ask questions.',
-  },
-  {
     question: 'Is there parity pricing available?',
     answer:
-      'Yes! We offer parity pricing. If the cost of this course is prohibitive in your country, please contact us for more information.',
+      'Yes! We offer parity pricing. If the cost of this course is prohibitive in your country, please contact me for more information.',
   },
   {
     question: 'Is there a student discount?',
@@ -38,33 +33,21 @@ const faqs: faq[] = [
   {
     question: 'What if I have more questions?',
     answer:
-      'If you have any questions that are not answered here, please contact us at me@jamesqquick.com.',
+      'If you have any questions that are not answered here, please contact me at me@jamesqquick.com.',
   },
 ];
+const heading = 'Got questions?';
 ---
 
-<section
-  id="faq"
-  class="bg-cover bg-[url('/X-Pattern-Blue.svg')] px-4 md:px-16 py-40"
->
-  <div class="max-w-6xl mx-auto">
-    <Heading2
-      text="Quick Questions (FAQ)"
-      className="text-white mb-10 md:mb-20 text-center"
-    />
-
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 gap-y-10 mb-10 md:mb-20"
-    >
+<Section id="faq" heading={heading}>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-10 md:mb-20">
       {faqs.map((faq) => <FAQ faq={faq} />)}
     </div>
-    <div class="text-center">
-      <a
-        href="/#newsletter"
-        class={`border-4 text-white bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl font-bold border-purple-900  lg:w-auto hover:scale-105 transition-transform inline-block duration-200`}
-      >
-        Ready to get started?
-      </a>
-    </div>
+    <img
+      src={astroIcon.src}
+      class="w-[80%] max-w-2xl absolute opacity-5 left-[50%] -translate-x-1/2 -top-10"
+      alt="Astro Icon"
+    />
   </div>
-</section>
+</Section>
