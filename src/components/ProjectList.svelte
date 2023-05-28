@@ -22,10 +22,10 @@
 </script>
 
 <div class="text-xl flex gap-y-6 my-8 xl:gap-x-10 items-center relative mb-20">
-  <ul class="flex flex-col w-full lg:w-1/2 gap-y-4">
+  <div class="flex flex-col w-full lg:w-1/2 gap-y-4">
     {#each projects as project, i}
-      <li
-        class="gap-x-4 items-center border-white p-8 rounded-xl lg:hover:bg-violet-900 hover:bg-opacity-50 transition-colors duration-300 lg:cursor-pointer"
+      <button
+        class="gap-x-4 items-center border-white p-8 rounded-xl lg:hover:bg-violet-900 hover:bg-opacity-50 transition-colors duration-300 lg:cursor-pointer text-left"
         class:lg:border={selectedIndex === i + 1}
         on:click={() => selectProject(i + 1)}
       >
@@ -35,9 +35,9 @@
         <span class="block text-lg text-gray-200">
           {project.description}
         </span>
-      </li>
+      </button>
     {/each}
-  </ul>
+  </div>
   <div
     class="hidden lg:block w-2/3 lg:relative translate-x-20 lg:translate-x-40"
   >
