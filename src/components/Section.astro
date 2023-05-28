@@ -28,7 +28,7 @@ const {
   id={id}
   class={`${hasBg && 'bg-violet-950 bg-opacity-60'} ${
     hasYPadding && 'py-24 lg:py-40'
-  } text-white overflow-x-clip px-8`}
+  } text-white overflow-x-clip px-8 relative`}
 >
   <div class="max-w-2xl mx-auto mb-20">
     {
@@ -54,14 +54,14 @@ const {
   </div>
   {
     hasRightBox && (
-      <div class="absolute top-0 -right-56 opacity-10">
+      <div class="absolute top-40 -right-56 opacity-10">
         <Boxes />
       </div>
     )
   }
   {
     hasLeftBox && (
-      <div class="absolute top-0 -left-48 opacity-10">
+      <div class="absolute top-20 -left-48 opacity-10">
         <Boxes />
       </div>
     )

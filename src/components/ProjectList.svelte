@@ -25,8 +25,8 @@
   <ul class="flex flex-col w-full lg:w-1/2 gap-y-4">
     {#each projects as project, i}
       <li
-        class="gap-x-4 items-center border-white p-8 rounded-xl hover:bg-violet-900 hover:bg-opacity-50 transition-colors duration-300 cursor-pointer"
-        class:border={selectedIndex === i + 1}
+        class="gap-x-4 items-center border-white p-8 rounded-xl lg:hover:bg-violet-900 hover:bg-opacity-50 transition-colors duration-300 lg:cursor-pointer"
+        class:lg:border={selectedIndex === i + 1}
         on:click={() => selectProject(i + 1)}
       >
         <div class="flex gap-x-2 items-center mb-1">
