@@ -1,49 +1,69 @@
 ---
-import Button from './Button.astro';
-import GradientWrapper from './GradientWrapper.astro';
 import Newsletter from './Newsletter.svelte';
+import selfie from '../images/selfie.jpeg';
+import astroIcon from '../images/astroIcon.svg';
+import { Image } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+import Boxes from './Boxes.astro';
 ---
 
 <div
-  class={`py-40 lg:py-40 px-4 sm:px-10 md:px-20  bg-cover bg-[url('/Gradient-Pattern-Hatch.svg')]`}
+  class={` pt-20 px-4 sm:px-10 md:px-20 p-2  flex flex-col md:items-center text-white md:text-center relative overflow-x-clip`}
 >
-  <div class="max-w-6xl mx-auto lg:flex items-center gap-20 mb-10">
-    <div class="lg:w-1/3 mb-10 lg:mb-0">
-      <img
-        class="mx-auto md:w-[400px] md:max-w-xs max-w-[200px]"
-        src="/Astro-Logo.svg"
-        alt=""
-      />
-    </div>
-    <div class="text-white flex-1">
-      <div class="mb-6 md:mb-8">
-        <h1 class="text-4xl sm:text-6xl font-bold mb-4 md:mb-4 tracking-wider">
-          Learn the Modern Web with <span class="">Astro</span>
-        </h1>
-        <p class="text-xl md:text-2xl tracking-wider max-w-2xl italic">
-          A hands-on course to teach you how to build websites the modern way
-          using Astro, the all-in-one framework for the modern web.
-        </p>
-      </div>
-      <!-- <div class="text-center lg:text-left">
-        <Button
-          isLink={true}
-          href="#newsletter"
-          text="Get Course Updates"
-          className="hover:scale-105 transition-transform inline-block duration-200"
-        />
-      </div> -->
-    </div>
+  <img
+    src={astroIcon.src}
+    class="w-[80%] max-w-2xl absolute opacity-5 -top-0 invisible md:visible"
+    alt="Astro Icon"
+  />
+
+  <div>
+    <p
+      class="underline underline-offset-4 text-xl mb-8 lg:mb-14 font-bold text-gray-300 flex items-center gap-x-2 justify-start md:justify-center"
+    >
+      <Icon name="ph:clock" class="h-8 w-8" />
+      Coming Summer 2023
+    </p>
+    <h1
+      class="text-5xl md:text-6xl lg:text-8xl max-w-6xl mx-auto font-bold mb-4 md:mb-6 tracking-wider"
+    >
+      Build Modern <span class="block">Websites with Astro!</span>
+    </h1>
+    <p
+      class="tracking-wider max-w-4xl text-xl md:text-2xl font-light italic text-gray-200"
+    >
+      A hands-on course to teach you how to build websites the modern way using
+      Astro, the all-in-one framework for the modern web.
+    </p>
   </div>
-  <div
-    class="bg-gradient-to-r to-blue-800 from-purple-800 max-w-4xl mx-auto rounded-lg p-1 shadow-lg"
-  >
-    <div class="bg-gray-900 p-4 md:p-10 rounded-lg">
-      <Newsletter
-        heading={`Don't Miss Out!`}
-        buttonText={'Join the Waitlist!'}
-        client:load
-      />
-    </div>
+
+  <div class="flex items-center my-20 mb-0 gap-x-4">
+    <Image
+      class="rounded-full h-16 w-16 inline-block"
+      src={selfie}
+      width={64}
+      height={64}
+      alt="James Q Quick taking a selfie"
+    />
+    <p>
+      Taught by <a
+        class="font-bold underline underline-offset-4"
+        href="https://jamesqquick.com/">James Q Quick</a
+      >
+    </p>
+  </div>
+
+  <div class="w-full max-w-3xl text-left translate-y-40">
+    <Newsletter
+      heading={`Sign up today!`}
+      buttonText={'Join the Waitlist!'}
+      client:load
+    />
+  </div>
+
+  <div class="absolute top-0 -right-56 opacity-10">
+    <Boxes />
+  </div>
+  <div class="absolute bottom-0 -left-48 opacity-10">
+    <Boxes />
   </div>
 </div>

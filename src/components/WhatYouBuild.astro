@@ -1,111 +1,23 @@
 ---
-import Heading2 from './Heading2.astro';
-import { Icon } from 'astro-icon';
+import ProjectList from './ProjectList.svelte';
+import Section from './Section.astro';
 ---
 
-<div class="bg-purple-50 py-20" id="whatYouBuild">
-  <section class="px-4 md:px-10 max-w-6xl mx-auto">
-    <div class="rounded-xl relative bg-white border-8 border-blue-950">
-      <img
-        src="/Squiggle-Pattern.svg"
-        class="absolute -top-[8px] -right-[8px] w-40 invisible lg:visible"
-      />
-      <div class="p-8 md:py-12 lg:pr-[120px]">
-        <div class="">
-          <!-- <div class="h-[256px] border-sky-600 border mb-4 lg:mb-0"></div> -->
-          <div class="">
-            <Heading2
-              text="Learn By Building"
-              className="text-purple-500 mb-2 lg:mb-8"
-            />
-            <p class="text-lg tracking-wide leading-relaxed">
-              I've taught hundreds of aspiring developers to code, and they all
-              want to know the super special secret to getting better. Here's
-              the bright side. The answer is simple and it's not a secret at
-              all.
-            </p>
-            <p
-              class="text-2xl text-purple-600 block my-10 md:my-14 text-center"
-            >
-              The best way to
-              <span
-                class="font-bold bg-purple-600 text-white px-2 py-1 rounded-md"
-                >learn</span
-              >
-              is to
-              <span
-                class="font-extrabold bg-purple-600 text-white px-2 py-1 rounded-md"
-                >build!</span
-              >
-            </p>
-            <p class="text-lg tracking-wide leading-relaxed">
-              That's why, in this course, you'll learn hands-on through building
-              several different applications!
-            </p>
-            <ul class="text-xl flex flex-col gap-y-6 px-4 my-8">
-              <li class="gap-x-4 items-center">
-                <div class="flex gap-x-2 items-center mb-1">
-                  <Icon
-                    class="h-8 w-8 text-purple-600 inline"
-                    pack="mdi"
-                    name="number-1-circle"
-                  />
-                  <span class="text-purple-600 font-bold"
-                    >Supercharged Markdown Blog</span
-                  >
-                </div>
-                <span class="block text-lg text-gray-800"
-                  >Building a basic blog is a given, but for this demo, you'll
-                  take it to the next level by adding powerful features like
-                  tags, pagination, authentication, comments, and more.</span
-                >
-              </li>
-              <li class="gap-x-4 items-center">
-                <div class="flex gap-x-2 items-center mb-1">
-                  <Icon
-                    class="h-8 w-8 text-purple-600 inline"
-                    pack="mdi"
-                    name="number-2-circle"
-                  />
-                  <span class="text-purple-600 font-bold"
-                    >Personal Portfolio</span
-                  >
-                </div>
-                <span class="block text-lg text-gray-800"
-                  >Experience the power of MDX by building a personal portfolio
-                  as well as a contact form using API routes with an SSR enabled
-                  Astro project.</span
-                >
-              </li>
-              <li class="gap-x-4 items-center">
-                <div class="flex gap-x-2 items-center mb-1">
-                  <Icon
-                    class="h-8 w-8 text-purple-600 inline"
-                    pack="mdi"
-                    name="number-3-circle"
-                  />
-                  <span class="text-purple-600 font-bold"
-                    >Modern Meetup Clone</span
-                  >
-                </div>
-                <span class="block text-lg text-gray-800"
-                  >This demo takes you beyond embedded markdown content as you
-                  incorporate Storyblok, a powerful Headless CMS. You'll also
-                  embedded maps using Google Maps as well as
-                  internationalization, and more!</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div
-        class="bg-cover bg-[url('/Navy-Circuit-Pattern.svg')] py-20 px-8 rounded-sm"
-      >
-        <h3 class="text-2xl text-center mb-8 font-bold text-white">
-          A few things you'll learn...
-        </h3>
-        <ul
+<Section
+  heading="What you will"
+  headingHighlight="build"
+  hasLeftBox={true}
+  hasBg={false}
+  id="whatYouBuild"
+  subheading={`The best way to learn is to build! That's why, in this course, you'll
+    learn hands-on through building several different applications!`}
+>
+  <div class="xl:pl-30">
+    <ProjectList client:load />
+  </div>
+</Section>
+
+<!-- <ul
           class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
         >
           <li class="flex items-center gap-x-2">
@@ -213,11 +125,5 @@ import { Icon } from 'astro-icon';
               name="check-circle"
             />Headless CMS
           </li>
-        </ul>
-        <!-- <p class="text-purple-600 italic text-center">
-          *For a full list of all topics covered, see below at the video list!
-    </p> -->
-      </div>
-    </div>
-  </section>
-</div>
+        </ul> -->
+<!-- *For a full list of all topics covered, see below at the video list! -->

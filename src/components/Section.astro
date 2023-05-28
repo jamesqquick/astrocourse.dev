@@ -1,0 +1,70 @@
+---
+import Boxes from './Boxes.astro';
+
+interface Props {
+  heading?: string;
+  headingHighlight?: string;
+  subheading?: string;
+  id?: string;
+  hasBg?: boolean;
+  hasYPadding?: boolean;
+  hasRightBox?: boolean;
+  hasLeftBox?: boolean;
+}
+
+const {
+  heading,
+  headingHighlight,
+  subheading,
+  id,
+  hasBg,
+  hasYPadding = true,
+  hasRightBox = false,
+  hasLeftBox = false,
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class={`${hasBg && 'bg-violet-950 bg-opacity-60'} ${
+    hasYPadding && 'py-24 lg:py-40'
+  } text-white overflow-x-clip px-8`}
+>
+  <div class="max-w-2xl mx-auto mb-20">
+    {
+      heading && (
+        <h2 class="text-4xl font-bold md:text-6xl text-left md:text-center mb-6">
+          {heading}
+          {headingHighlight && (
+            <span class="border-2 border-white rounded-lg px-2 py-1">
+              {headingHighlight}
+            </span>
+          )}
+        </h2>
+      )
+    }
+
+    {
+      subheading && (
+        <p class="text-lg md:text-2xl tracking-wide leading-relaxed max-w-2xl mx-auto text-left md:text-center mb-20">
+          {subheading}
+        </p>
+      )
+    }
+  </div>
+  {
+    hasRightBox && (
+      <div class="absolute top-0 -right-56 opacity-10">
+        <Boxes />
+      </div>
+    )
+  }
+  {
+    hasLeftBox && (
+      <div class="absolute top-0 -left-48 opacity-10">
+        <Boxes />
+      </div>
+    )
+  }
+  <slot />
+</section>

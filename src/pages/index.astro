@@ -11,6 +11,8 @@ import Pricing from '../components/Pricing.astro';
 import Navbar from '../components/Navbar.astro';
 import Overview from '../components/Overview.astro';
 import NewsletterSection from '../components/NewsletterSection.astro';
+import Topics from '../components/Topics.astro';
+import Footer from '../components/Footer.astro';
 
 export const prerender = true;
 ---
@@ -21,17 +23,18 @@ export const prerender = true;
     <BaseHead />
   </head>
   <body>
-    <main>
-      <Navbar isSticky={true} />
+    <main class="bg-gradient-to-r from-blue-800 to-purple-800">
+      <Navbar />
       <Hero />
       <Overview />
       <WhatYouBuild />
-      <Instructor />
+      <Topics />
       <WhoItsFor />
+      <Instructor />
       <!-- <NewsletterSection /> -->
       <FAQSection />
       <!-- <Pricing /> -->
-      <!-- <Footer /> -->
+      <Footer />
     </main>
   </body>
 </html>

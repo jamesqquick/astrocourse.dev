@@ -1,119 +1,53 @@
 ---
 import { Icon } from 'astro-icon';
-import GradientWrapper from './GradientWrapper.astro';
-import Heading2 from './Heading2.astro';
 import Newsletter from './Newsletter.svelte';
+import Section from './Section.astro';
 
-const cards = [
-  {
-    title: 'These People',
-    icon: 'ic:baseline-people-outline',
-    items: ['Students', 'Learners', 'Professionals'],
-  },
-  {
-    title: 'These Skills',
-    icon: 'mdi:head-lightbulb-outline',
-    items: ['JavaScript', 'HTML', 'CSS'],
-  },
-  {
-    title: 'These Wants',
-    icon: 'mdi:cards-heart-outline',
-    items: [
-      'Hands-on experience',
-      'Skills for your resume',
-      'Learn something new',
-    ],
-  },
+const experiences = [
+  'A fundamental knowledge of HTML, CSS, and JavaScript',
+  'A desire to learn new skills to put on their resume',
+  'Some experience with a framework (encouraged but not required)',
 ];
+
+const subheading = `This course is built for beginner to intermediate web developers who have`;
+const heading = `Is This Course for`;
+const headingHighlight = `you?`;
 ---
 
-<section
+<Section
   id="whoIsItFor"
-  class="py-20 md:py-40 px-6 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')]"
+  heading={heading}
+  headingHighlight={headingHighlight}
+  subheading={subheading}
 >
-  <div class="max-w-4xl mx-auto">
-    <div class="mb-10">
-      <Heading2 text="Who Is This Course For?" className=" mb-8  text-black" />
-
-      <p class="text-xl max-w-4xl">
-        This course is built for <span class="font-bold"
-          >beginner to intermediate web developers
-        </span>who have:
-      </p>
-      <ul class="text-xl my-6 flex flex-col gap-y-1">
-        <li class="flex items-center gap-x-2">
-          <Icon
-            class="h-4 w-4 text-green-500 inline"
-            pack="mdi"
-            name="check-circle"
-          />fundamental knowledge of HTML, CSS, and JavaScript
-        </li>
-        <li class="flex items-center gap-x-2">
-          <Icon
-            class="h-4 w-4 text-green-500 inline"
-            pack="mdi"
-            name="check-circle"
-          />experience with a framework (encouraged but not required)
-        </li>
-        <li class="flex items-center gap-x-2">
-          <Icon
-            class="h-4 w-4 text-green-500 inline"
-            pack="mdi"
-            name="check-circle"
-          />a desire to learn new skills to put on their resume
-        </li>
-      </ul>
-      <!-- <p class="font-bold text-xl mt-6">
-        Worried it might be too much for you?
-      </p>
-      <p class="text-xl">
-        You will have access to a dedicated Discord to get all the help you
-        need!
-      </p> -->
-    </div>
-    <!-- <div class="grid lg:grid-cols-3 gap-x-4 lg:text-left gap-y-8 mb-10">
+  <div class="max-w-6xl mx-auto -mb-40">
+    <div
+      class="flex flex-col lg:flex-row gap-y-8 gap-x-10 mb-20 max-w-2xl lg:max-w-4xl mx-auto"
+    >
       {
-        cards.map((card) => (
-          <GradientWrapper className="rounded-2xl lg:h-[580px] text-white max-w-md mx-auto w-full md:w-[400px] lg:w-[320px] xl:w-[360px] ">
-            <div class="bg-gray-800 px-8 sm:px-10 py-10 rounded-2xl h-full">
-              <div class="h-32 w-32 rounded-full mx-auto mb-8 border-4 border-blue-950 flex justify-center items-center bg-gradient-to-r p-2 from-blue-800 to-purple-800">
-                <Icon name={card.icon} class="h-16 w-16" />
-              </div>
-              <h3 class="text-2xl lg:text-4xl font-bold">{card.title}</h3>
-              <div class="h-1 w-24 bg-gradient-to-r from-blue-900 my-8 to-purple-700  lg:mx-0" />
-              <ul class="text-xl text-left ">
-                {card.items.map((item) => (
-                  <li class="mb-2 last:mb-0">
-                    <Icon
-                      class="h-8 w-8 inline text-green-500 -translate-x-2"
-                      name="mdi:check"
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </GradientWrapper>
+        experiences.map((experience) => (
+          <div class="flex gap-x-4 items-center">
+            <Icon class="h-10 lg:h-32 opacity-50 " name="prime:cog" />
+
+            <p class="text-xl opacity-90">{experience}</p>
+          </div>
         ))
       }
-    </div> -->
-    <p class="text-xl">
+    </div>
+    <p class="text-lg opacity-80 max-w-xl mx-auto text-center">
       *Still not sure if it's for you? Send me an email at <a
         href="mailto:me@jamesqquick.com"
-        class="cursor font-bold">me@jamesqquick.com</a
+        class="cursor underline">me@jamesqquick.com</a
       > with any outstanding questions!
     </p>
-    <div
-      id="newsletter"
-      class={`bg-gradient-to-r p-2 from-blue-800 to-purple-800 mt-20  rounded-3xl  mx-auto`}
-    >
-      <div class="bg-gray-800 rounded-3xl py-8 px-4 md:px-8 md:py-16">
-        <Newsletter
-          heading={`Seem Like A Good Fit?`}
-          buttonText={'Join the Waitlist!'}
-          client:load
-        />
-      </div>
-    </div>
   </div>
-</section>
+  <div id="newsletter"></div>
+
+  <div class="max-w-3xl mx-auto translate-y-72">
+    <Newsletter
+      heading={`Sign up today!`}
+      buttonText={'Join the Waitlist!'}
+      client:visible
+    />
+  </div>
+</Section>

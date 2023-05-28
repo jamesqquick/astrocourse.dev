@@ -1,92 +1,35 @@
 ---
 import { Icon } from 'astro-icon';
 import Heading2 from './Heading2.astro';
-
-//TODO: more takeaways
-//TODO: refernce Discord support
-
-const takeaways = [
-  'Build faster websites by shipping less JavaScript',
-  'Manage content efficiently with the power of TypeScript',
-  'Learn full-stack principles to build more than just static sites',
-  `Incorporate authentication using JWTs, cookies, etc.`,
-];
 ---
 
-<section
-  class="bg-gray-200 bg-cover bg-[url('/Gradient-Cross-Pattern.svg')] pt-10 pb-40"
-  id="overview"
->
-  <div class="w-full lg:w-[70%] xl:w-[60%] ml-auto">
-    <div
-      class="bg-primary py-16 lg:p-12 px-4 md:px-12 text-white relative self-end mb-16 lg:h-[400px] lg:flex justify-center items-center mx-2 md:mx-10 lg:mx-0 rounded-xl lg:rounded-none overflow-hidden lg:overflow-visible"
-    >
-      <img
-        src="/Squiggle.svg"
-        class="h-[400px] absolute top-0 right-0 lg:left-[-295px] invisible lg:visible"
-        alt="Squiggle"
-        aria-hidden="true"
-      />
-      <img
-        src="/Squiggle-Dark.svg"
-        class="h-[300px] absolute top-0 right-0 visible lg:invisible"
-        alt="Squiggle"
-      />
-      <div>
-        <Heading2
-          className="mb-4 md:mb-10 text-center relative xs:text-left z-20"
-          text="Key Takeaways"
-        />
-        <ul
-          class="ml-6 text-xl md:text-2xl leading-loose flex flex-col gap-y-4 relative z-20"
-        >
-          {
-            takeaways.map((takeaway) => (
-              <li class="">
-                <Icon
-                  class="h-8 w-8 text-green-500 inline -translate-x-4"
-                  pack="mdi"
-                  name="check-circle"
-                  aria-hidden="true"
-                  alt="checkmark"
-                />
-                {` ${takeaway}`}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </div>
+<section class="bg-violet-900 bg-opacity-60 py-20" id="overview">
   <div
-    class="flex flex-col lg:flex-row justify-between mt-40 items-center gap-y-24 lg:gap-y-4 px-10 max-w-6xl mx-auto"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-between mt-40 items-center gap-y-24 lg:gap-y-4 px-10 max-w-6xl mx-auto text-center"
   >
     <p>
-      <span
-        class="block text-9xl font-bold text-purple-700 relative text-center"
+      <span class="block text-8xl font-bold text-white relative text-center"
         >3</span
       >
-      <span class="text-2xl text-gray-8 00 font-bold uppercase"
-        >hands-on demos</span
-      >
+      <span class="text-2xl text-gray-100">Hands-on demos</span>
     </p>
     <p>
-      <span
-        class="block text-9xl font-bold text-purple-700 relative text-center"
+      <span class="block text-8xl font-bold text-white relative text-center"
         >40+</span
       >
-      <span class="text-2xl text-gray-800 font-bold uppercase"
-        >in-depth lessons</span
-      >
+      <span class="text-2xl text-gray-100">In-depth lessons</span>
     </p>
     <p>
-      <span
-        class="block text-9xl font-bold text-purple-700 relative text-center"
+      <span class="block text-8xl font-bold text-white relative text-center"
         >10+</span
       >
-      <span class="text-2xl text-gray-800 font-bold uppercase"
-        >Hours of video</span
+      <span class="text-2xl text-gray-100">Hours of video</span>
+    </p>
+    <p>
+      <span class="block text-8xl font-bold text-white relative text-center"
+        >3k+</span
       >
+      <span class="text-2xl text-gray-100">Discord users</span>
     </p>
   </div>
 </section>

@@ -1,0 +1,63 @@
+---
+import { Icon } from 'astro-icon';
+import Heading2 from './Heading2.astro';
+import Section from './Section.astro';
+
+const topics = [
+  {
+    title: 'Static vs Dynamic Routes',
+    description: 'Learn about Static vs Dynamic Routes and SSG & SSR',
+    icon: 'iconoir:frame-tool',
+  },
+  {
+    title: 'Astro Islands',
+    description: `Build faster with reusable UI components using Astro's component-based architecture`,
+    icon: 'akar-icons:light-bulb',
+  },
+  {
+    title: 'MDX and Headless CMS',
+    description:
+      'Create dynamic content and update your website without pushing new code',
+    icon: 'akar-icons:paper',
+  },
+  {
+    title: 'Dynamic Image Optimization',
+    description:
+      'Use Cloudinary to request dynamic image sizes and formats on-the-fly',
+    icon: 'tabler:camera',
+  },
+  {
+    title: 'Type-safety with Zod',
+    description: 'Ship your websites with confidence by type-checking with Zod',
+    icon: 'ant-design:safety-outlined',
+  },
+  {
+    title: 'Deploying and Hosting',
+    description:
+      'Deploy and host your website with Astro and get your site live in no time',
+    icon: 'ic:outline-rocket',
+  },
+];
+
+const subheading = `One thing you can be sure of is that we take no short-cuts! Core concepts
+      will be methodically covered for your understanding`;
+const heading = `What topics are covered in this course?`;
+---
+
+<Section id="topics" heading={heading} subheading={subheading} hasBg={true}>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-8 gap-y-12"
+  >
+    {
+      topics.map((topic) => (
+        <div class="">
+          <Icon class="h-10 w-10 mb-4 opacity-80" name={topic.icon} />
+          <h3 class="text-2xl font-bold mb-2">{topic.title}</h3>
+          <p class="text-lg tracking-wide leading-relaxed opacity-90">
+            {topic.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
