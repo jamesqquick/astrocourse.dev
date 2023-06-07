@@ -1,4 +1,5 @@
 ---
+import Icon from 'astro-icon';
 import ProjectList from './ProjectList.svelte';
 import Section from './Section.astro';
 ---
@@ -10,120 +11,31 @@ import Section from './Section.astro';
   hasBg={false}
   id="whatYouBuild"
   subheading={`The best way to learn is to build! That's why, in this course, you'll
-    learn hands-on through building several different applications!`}
+    learn through building hands-on!`}
 >
-  <div class="xl:pl-30">
+  <div class="xl:pl-30 mb-20">
     <ProjectList client:load />
   </div>
-</Section>
 
-<!-- <ul
-          class="mx-auto grid grid-cols-1 gap-y-2 sm:gap-y-1 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-lg md:text-xl"
-        >
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Static vs Dynamic Routes
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />SSG vs SSR
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Content Collections
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Astro Islands
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Image Optimization
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Integrations
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Tailwind CSS
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Types with Zod
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />API Endpoints
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Pagination
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Markdown and MDX
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />SEO and Meta Tags
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />RSS Feeds
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Deploying and Hosting
-          </li>
-          <li class="flex items-center gap-x-2">
-            <Icon
-              class="h-4 w-4 text-green-500 inline"
-              pack="mdi"
-              name="check-circle"
-            />Headless CMS
-          </li>
-        </ul> -->
-<!-- *For a full list of all topics covered, see below at the video list! -->
+  <ul
+    class="mx-auto p-8 grid grid-cols-1 gap-y-3 lg:gap-y-4 md:grid-cols-2 lg:grid-cols-3 list-disc text-white pl-4 text-xl md:text-2xl mb-8 justify-items-center font-bold"
+  >
+    <li class="flex items-center gap-x-2">Static vs Dynamic Routes</li>
+    <li class="flex items-center gap-x-2">SSG vs SSR</li>
+    <li class="flex items-center gap-x-2">Content Collections</li>
+    <li class="flex items-center gap-x-2">Astro Islands</li>
+    <li class="flex items-center gap-x-2">Image Optimization</li>
+    <li class="flex items-center gap-x-2">Integrations</li>
+    <li class="flex items-center gap-x-2">Tailwind CSS</li>
+    <li class="flex items-center gap-x-2">Types with Zod</li>
+    <li class="flex items-center gap-x-2">API Endpoints</li>
+    <li class="flex items-center gap-x-2">Pagination</li>
+    <li class="flex items-center gap-x-2">Markdown</li>
+    <li class="flex items-center gap-x-2">SEO and Meta Tags</li>
+    <li class="flex items-center gap-x-2">RSS Feeds</li>
+    <li class="flex items-center gap-x-2">Deploying and Hosting</li>
+  </ul>
+  <!-- <p class="text-white text-center text-lg">
+    *For a full list of all topics covered, see below at the video list!
+  </p> -->
+</Section>
