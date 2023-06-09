@@ -1,0 +1,50 @@
+---
+title: MPAs vs SPAs
+description: Multi-page applications consist of multiple web pages where each page is a separate document
+pubDate: '2023-02-04'
+updatedDate: '2023-02-04'
+heroImage: /images/cover1
+---
+
+In the world of modern Web Development, there are tons of different acronyms to learn. One "new" one is MPA which stands for multi-page application (MPA). Let's discuss what MPAs are and how they compare to single-page applications (SPA). Both offer different advantages and disadvantages, so let's dive in to each and compare.
+
+## Multi-Page Applications (MPA)
+
+Multi-Page Applications consist of multiple web pages where each page is a separate document and server request. In an MPA, when a user navigates to a page, a request is sent to the server which loads a new page, resulting in a complete page refresh. This is in contrast to SPAs, where the server only serves the initial page and then the client-side code takes over (more on that in a second).
+
+Although the acronym MPA is fairly new, the concept is not. In fact, the vast majority of websites 10-15 years ago were MPAs. Frameworks like Ruby on Rails really embraced this concept and made it easy to build MPAs. However, as the web evolved, the need for faster and more interactive websites became more apparent. This led to the rise of SPAs.
+
+### Advantages of MPAs
+
+- SEO-Friendliness: MPAs are generally better optimized for search engine visibility since the content is rendered on the server and easier to index
+- Simplified Development: Developing an MPA follows the traditional server-side rendering (SSR) approach which has been an established strategy for years
+- Speed (initial page load): Since the server is responsible for rendering the page, the client typically loads significantly less Javascript (in comparison to SPAs) before content is displayed on the screen.
+
+### Disadvantages of MPAs
+
+- Slower Loads Between Pages: From page to page, MPAs will typically have slower secondary page loads (after the initial page load) as each new page triggers a server request and a complete page refresh.
+- Limited Interactivity: The user experience in MPAs can be less interactive, as the server is responsible for rendering and processing every user action (_JavaScript can also be loaded on the client for any necessary interactivity_).
+- Higher Server Load: Since each new page triggers a new full request to the server, your server will typically have to handle increased server load and bandwidth requirements than an SPA.
+
+## Single Page Applications (SPA)
+
+The term Single Page Application doesn't imply that your site only has one page. What it means is that instead of loading a new page for each request, the server serves a large bundle of client-side JavaScript on the first page load. This client-side JavaScript is then responsible for rendering the page, processing user actions (ex. form submissions), and rendering future pages. This is in contrast to MPAs, where the server is responsible for rendering each page and processing user actions.
+
+Although there were several precursor SPA frameworks, React and Angular really popularized the concept. These frameworks made it easy to build SPAs leading to a hige percentage of new websites being built as SPAs over the last decade.
+
+### Advantages of SPAs
+
+- Faster User Experience: SPAs offer faster load times **after the initial page load\***, as they retrieve and display data **without refreshing the entire page**.
+- Rich Interactivity: SPAs provide a more engaging and responsive user experience, as they can update specific sections of a page without reloading the entire content.
+- Less Server Hits: SPAs can optimize network traffic by fetching data in the background and dynamically updating the UI, reducing the server load and bandwidth requirements.
+
+### Disadvantages of SPAs
+
+- SEO Challenges: By default, SPAs are less SEO-friendly since most search engine crawlers struggle to extract content from dynamically loaded pages. Additional efforts, like server-side rendering or implementing SEO techniques, are required to overcome this limitation.
+- Loading Screens: Since data is often loaded from the client, you'll often have to display a loading screen while the data is being fetched. With more traditional server side rendered applications, this isn't necessary since the data is loaded on the server before being sent to the browser.
+
+## Where We Are Now
+
+SPAs were the defacto way to go for the last decade, but recently there has been a resurgence in other approaches. This is largely due to the rise of modern frameworks that aim to bring the best of both worlds together by combining the benefits of SPAs and MPAs.
+
+In just the past year, Astro has grown tremendously as loads of developers have used it to (re)build their personal sites (including [me](https://jamesqquick.com/)) due to its focus on content-driven websites, speed, and developer experience. Astro is a modern static site generator that combines the best of both worlds by providing a framework for building static websites with the power of client-side JavaScript. This means that you can build your site with the speed and SEO benefits of a static site, but still have the interactivity of a SPA.

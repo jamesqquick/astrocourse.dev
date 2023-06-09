@@ -17,32 +17,36 @@ const posts = (await getCollection('blog')).sort(
 
 <BaseLayout>
   <section>
-    <h1
-      class="text-center text-4xl md:text-6xl my-20 font-bold text-purple-100"
-    >
-      Blog Posts Coming Soon 👀
+    <h1 class="text-center text-4xl my-20 font-bold text-purple-100">
+      Astro Articles <span class="font-normal opacity-90">
+        by James Q Quick</span
+      >
     </h1>
-    <div class="bg-gray-900 p-4 md:p-10 rounded-lg">
-      <Newsletter heading="Stay Up To Date" buttonText="Get Updates!" />
-    </div>
-    <ul class="grid grid-cols-1 lg:gap-y-8 gap-y-6 max-w-2xl mx-auto">
+
+    <ul class="grid grid-cols-1 lg:gap-y-8 gap-y-6 mx-auto mb-40">
       {
         posts.map((post) => (
-          <li>
+          <li class="">
             <a
               href={`/blog/${post.slug}/`}
-              class="text-2xl block hover:-translate-y-1 transition-transform"
+              class="text-2xl block hover:-translate-y-1 transition-transform border border-gray-100 rounded-lg"
             >
-              <GradientWrapper className="rounded-2xl ">
-                <div class="bg-gray-900 py-8 px-4 rounded-xl">
-                  <FormattedDate date={post.data.pubDate} />
-                  <h2 class="text-4xl">{post.data.title}</h2>
-                </div>
-              </GradientWrapper>
+              <div class=" py-8 px-4 rounded-xl">
+                <FormattedDate date={post.data.pubDate} />
+                <h2 class="text-4xl">{post.data.title}</h2>
+                <p class="text-lg opacity-90">{post.data.description}</p>
+              </div>
             </a>
           </li>
         ))
       }
     </ul>
+    <!-- 
+    <div class="bg-violet-900 bg-opacity-60">
+      <div class="rounded-lg">
+        <Newsletter heading="Stay Up To Date" buttonText="Get Updates!" />
+      </div>
+    </div>
+  </section> -->
   </section>
 </BaseLayout>

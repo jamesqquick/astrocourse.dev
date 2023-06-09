@@ -10,9 +10,17 @@ import Navbar from '../components/Navbar.astro';
     <BaseHead title="Astro Course Blog" />
   </head>
   <body>
-    <Navbar />
-    <main class="min-h-screen py-10 px-10 text-white bg-blue-950">
-      <div class="max-w-6xl mx-auto">
+    <main
+      class="min-h-screen text-white bg-gradient-to-r from-blue-800 to-purple-800"
+    >
+      <div
+        class="h-20 m-0 flex justify-center items-center bg-violet-900 bg-opacity-60"
+      >
+        <p class="text-xl text-gray-200 underline text-center">
+          <a href="/"> Learn to build modern websites with Astro!</a>
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto py-10 px-10">
         <slot />
       </div>
     </main>
