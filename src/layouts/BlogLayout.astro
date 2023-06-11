@@ -9,7 +9,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout>
-  <article class="prose prose-invert prose-xl lg:prose-2xl mx-auto">
+  <article
+    class="prose prose-invert prose-xl lg:prose-2xl mx-auto text-gray-50"
+  >
     <div class="mb-10">
       {
         heroImage && (
@@ -18,19 +20,19 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             height={1080}
             src={heroImage}
             alt=""
-            class="mb-8 mt-0 rounded-md mx-auto"
+            class="mb-8 mt-0 rounded-xl mx-auto border-4 border-white border-opacity-70"
           />
         )
       }
       <FormattedDate date={pubDate} />
       <h1 class="text-6xl mb-0">{title}</h1>
-      {
+      <!-- {
         updatedDate && (
           <div class="last-updated-on">
             Last updated on <FormattedDate date={updatedDate} />
           </div>
         )
-      }
+      } -->
     </div>
     <slot />
   </article>
