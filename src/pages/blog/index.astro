@@ -1,21 +1,15 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Heading2 from '../../components/Heading2.astro';
-import GradientWrapper from '../../components/GradientWrapper.astro';
-import Newsletter from '../../components/Newsletter.svelte';
 
 const posts = (await getCollection('blog')).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<BaseLayout>
+<BaseLayout title="Blog - Build Modern Websites with Astro">
   <section>
     <h1 class="text-center text-4xl my-20 font-bold text-purple-100">
       Astro Articles <span class="font-normal opacity-90">

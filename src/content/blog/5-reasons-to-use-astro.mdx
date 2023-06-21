@@ -1,0 +1,169 @@
+---
+title: 5 Reasons To Use Astro For Your Next Site
+description: Astro is a new static site generator that is built for speed and developer experience. It's a great choice for your next site.
+pubDate: '2023-06-22'
+updatedDate: '2023-02-22'
+heroImage: /images/blog-covers/5-reasons-to-use-astro.jpg
+---
+
+In the ever-evolving landscape of web development, there are tons of different JavaScript frameworks to choose from. If you're searching for a powerful JavaScript framework with performance in mind, look no further than [Astro](https://astro.build/).
+
+Astro is a modern static site generator that offers numerous benefits for developers. In this article, we'll explore five compelling reasons why you should choose Astro for your next site.
+
+## 1. Performance
+
+Astro is extremely performant. How? Well, Astro ships zero JavaScript to the browser by default. It focuses on creating static content that is generated at build time. Although other powerful frameworks like Next.js can do the same thing, Next.js also ships JavaScript to the browser to handle [rehydration](<https://en.wikipedia.org/wiki/Hydration_(web_development)>) which Astro does not. This gives Astro a significant advantage in terms of speed and performance.
+
+Worried this might limit your ability to add interactive JavaScript to your site? Well, don't. Although Astro doesn't ship any JavaScript code to the browser by default, you can pick and choose where to add JavaScript. This means you can add JavaScript to your site where it makes sense, and leave it out where it doesn't. This gives you the best of both worlds.
+
+The simplest way to add JavaScript is to add a `script` tag to your `.astro` file. This is basically the equivalent of working with a "Vanilla JavaScript" project that doesn't leverage a framework.
+
+```html
+<h1>Welcome, world!</h1>
+<script>
+  console.log('Welcome, browser console!');
+</script>
+```
+
+Additionally, you have the ability to add JavaScript by leveraging other frameworks like React, Vue, Svelte, and more! This is one of the most unique features of Astro. There's not another framework that I know of that lets you leverage the power of... well, almost any framework you want.
+
+To leverage another UI framework in your Astro site, you can include one of the relevant integrations (more on integrations in a minute). Refer to the [Installing Integration docs(https://docs.astro.build/en/core-concepts/framework-components/) for setup. After you have the integration installed, you can import your new framework components in your `.astro` files like so.
+
+```astro
+---
+import ReactComponent from '../components/ReactComponent.jsx';
+---
+
+<html>
+  <body>
+    <h1></h1>
+    <MyReactComponent />
+  </body>
+</html>
+```
+
+What's interesting is even if you import a React component, for example, Astro still does not ship its associated JavaScript to the browser unless you tell it to. You can control when, how, and if this JavaScript gets sent to the browser by using one of the [client directives](https://docs.astro.build/en/reference/directives-reference/#client-directives).
+
+- **client:load** - Load and hydrate the component JavaScript immediately on page load
+- **client:idle** - Load and hydrate the component JavaScript once the page is done with its initial load and the requestIdleCallback event has fired
+- **client:visible** - Load and hydrate the component JavaScript once the component has entered the user’s viewport. This uses an IntersectionObserver internally to keep track of visibility
+- **client:media** - `client:media={string}` loads and hydrates the component JavaScript once a certain CSS media query is met
+
+This gives you lots of ways to customize how and when you ship JavaScript to maintain a high level of performance.
+
+## 2. Built-in Markdown and MDX Support
+
+I've tried to work with Markdown and MDX in a few different frameworks, and I can definitively say, it by far the easiest to work with in Astro. Astro supports Markdown out of the box and supports MDX through an integration. This means you can write your content in Markdown or MDX and Astro will process it for you with a few key features.
+
+- `.md` and `.mdx` files are automatically processed as pages
+- automatic code highlighting
+- frontmatter support through YAML syntax
+
+For developers like me that enjoy having all of the content for my site embedded in the source code itself, this is the way to go. I'm a huge fan of several different Headless CMS products, but there's something special about having 100% ownership over your content. Astro makes this easy.
+
+## 3. Content Collections
+
+One additional feature of working with Markdown and MDX in Astro is the ability to create [Content Collections](https://docs.astro.build/en/guides/content-collections/). Content collections are a way to group related content together like blog posts, a collection of documentation pages, or a collection of product listings. For example, in my [personal website](https://jamesqquick.com/), I have three differnt content types: blog posts, talks, and testimonials.
+
+> Content Collections create the best markdown experience I've ever worked with
+
+Content Collections also have a few extremely powerful features.
+
+### 1. Define TypeScript Types
+
+One of the common missing features when working with markdown is how to get TypeScript models for the frontmatter/metadata for your posts. This leads to potentially feable code as you could mispell a property name and not know it until runtime. Astro solves this problem by allowing you to define TypeScript types for your content collections.
+
+To define a content collection, you would need to create a directory at `src/content`. In that directory you could add your `config.ts` file for definiting your models. Here's what the configuration for my blog content looks like on my personal site.
+
+```javascript
+import { defineCollection } from 'astro:content';
+
+const blogCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    coverImage: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    youTubeVideoId: z.string().optional(),
+    tags: z.array(z.string()),
+  }),
+});
+
+export const collections = {
+  blog: blogCollection,
+};
+```
+
+### 2. Querying Content
+
+Once you have your content collection defined, Astro provides an easy and consistent way to query that data.
+
+```javascript
+import { CollectionEntry, getCollection } from 'astro:content';
+const blogs = await getCollection('blog');
+```
+
+That's all it takes! For my site, I took this one step further and created a helper function to be able to query and sort my posts by publication date.
+
+```javascript
+import { CollectionEntry, getCollection } from 'astro:content';
+
+export const getSortedBlogPosts = async (): Promise<
+  CollectionEntry<'blog'>[]
+> => {
+  return (await getCollection('blog')).sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
+};
+```
+
+This is much easier than having to write a custom query for each content type by referencing the file system in Node.js.
+
+## 4. Astro Integrations
+
+[Astro Integrations](https://astro.build/integrations/) provide easy ways to customize and expand on your Astro projects. We've actually already mentioned a few so far in this article. A few different ones to work with other frameworks, and one for adding MDX support. In addition to those, there are many others. Here are a few quick ones that comes to mind.
+
+- [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+- [@astro/icon](https://docs.astro.build/en/guides/integrations-guide/tailwind/) (I use this in every Astro project!)
+- [@astro/image](https://docs.astro.build/en/guides/integrations-guide/image/)
+
+Astro also has integrations to support deploying to some of my favorite hosting providers.
+
+- [Vercel](https://docs.astro.build/en/guides/integrations-guide/vercel/)
+- [Netlify](https://docs.astro.build/en/guides/integrations-guide/netlify/)
+- [Cloudflare Pages](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
+
+With Astro Integrations, you can add tons of functionality to your site and developer experience in just a few seconds.
+
+## 5. Hybrid Rendering
+
+Although Astro is primarily thought of as a static site generator, it also supports server-side rendered (SSR) content. By default, all pages in Astro are static. This means they are created at build time and served on request. However, you can change this behavior through your project configuration.
+
+To take advantage of SSR, you'll need to switch the `output` configuration of your application from `static` (default) to `server` in the `astro.config.mjs` file. You'll also need to define an adapter like Netlify, Vercel, etc. to ensure that your server side code can run correctly on your hosting provider of choice. Here's an example of a Astro configuration for deploying an SSR project to Netlify (refer to the [installation docs](https://docs.astro.build/en/guides/integrations-guide/netlify/) for more details).
+
+```javascript
+import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify/functions';
+
+export default defineConfig({
+  output: 'server',
+  adapter: netlify(),
+});
+```
+
+Up until Astro 2.0, you were required to have your entire site be configured as either `static` or `server`. However, with Astro 2.0, you can now have a hybrid site where you choose the appropriate render strategy for a given page. This means you can have some pages be static and some pages be server-side rendered. To do so, you'll need to configure your project as `server`, and then mark each individual page that you want to be rendered as static by exporting a property of `prerender` set to `true`. Here's an example of what that would look like.
+
+```astro
+---
+export const prerender = true;
+---
+
+<h1>Hello World from A static page</h1>
+```
+
+## Try Astro Today
+
+In a world of overwhelming amounts of frameworks, Astro is a game-changer for web developers seeking a performant, flexible, and user-friendly framework. With its focus on performance, built-in Markdown and MDX support, content collections, integrations, and hybrid rendering capabilities, Astro empowers developers to create stunning websites with ease. Whether you're building a personal blog, a documentation site, or an e-commerce platform, Astro provides the tools and features necessary to bring your vision to life.
+
+So, why wait? Give Astro a try for your next website project, and experience the power and versatility it brings to your development workflow.

@@ -8,7 +8,7 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} image={heroImage}>
   <article
     class="prose prose-invert prose-xl lg:prose-2xl mx-auto text-gray-50"
   >
