@@ -1,0 +1,187 @@
+---
+title: How to Use Astro Content Collections
+description: Content collections allow you to manage, author, and organize content in any Astro project.
+pubDate: '2023-06-26'
+updatedDate: '2023-06-26'
+heroImage: /images/blog-covers/how-to-use-content-collections.jpg
+---
+
+import Newsletter from '../../components/Newsletter.svelte'
+
+Many developers, including myself, opt to maintain all of their site's content in source code using `.md` and/or `.mdx` files instead of using a traditional Headless CMS. However, as I've learned from hands-on experience, maintaining this content without a solid structure in place can be a pain!
+
+To help with that, Astro created [Content Collections](https://docs.astro.build/en/guides/content-collections/): a better way to manage and organize your content which includes defined TypeScript typed schemas using [Zod](https://zod.dev/). In this article, we will explore what Content Collections are and how you can effectively use them in your Astro projects.
+
+## What Are Content Collections?
+
+Content Collections in Astro provide a way to group and organize your structured content, such as blog posts, authors, etc. This structure makes it easier to create data-driven websites in an efficient way.
+
+By defining Content Collections, you can define schemas for your content making it much easier to create and validate content. Combining this with the fact that Astro supports Markdown and MDX files out of the box, you can easily create and manage your content without having to use a separate CMS.
+
+Without Content Collections, you would have full reponsibility over a few tedious and error-prone tasks:
+
+- Defining a consistent folder structure (and sticking to it)
+- Parsing and rendering your content
+- Validating structured frontmatter data
+
+Instead, Content Collections help address each of those tasks by providing a simple mechanism to define schema types for your structured data as well as a query API to fetch and filter content. Let's see it in action.
+
+## Configuring Content Collections
+
+To configure Content Collections in Astro, you need to define them in a configuration file called `src/content/config.ts`. Astro will automatically know to load this configuration file when you run your application.
+
+From there, you'll need to define and export your collection (or multipl collections). Here's an example using a blog post collection:
+
+```typescript
+//src/content/config.ts
+import { defineCollection } from 'astro:content';
+
+const blogCollection = defineCollection({
+  //more on this in a second 👇
+});
+
+export const collections = {
+  blog: blogCollection,
+};
+```
+
+This configuration tells Astro to create a Content Collection named "blog" and load the content from the `content/blog` folder. Astro will automatically parse the content files in this folder and make them available in your templates.
+
+## Schema Validation and TypeScript Types with Zod
+
+Astro supports schema validation and TypeScript types using the Zod library. By defining a schema for your content, you can ensure that it adheres to a specific structure and validate the data before rendering it in your templates. This is extremely powerful as Astro will throw an error if you created a new blog posts that doesn't match the defined schema.
+
+We won't go deeper into how Zod works in this article, but here's a simplified example of the Zod definition used for the blog post schema for this site:
+
+```typescript
+import { z } from 'zod';
+
+const blog = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z
+			.string()
+		updatedDate: z
+			.string()
+		heroImage: z.string(),
+	}),
+});
+```
+
+This schema definition just tells Astro that each property in the blog post should be a string. You can then use Zod to continue to define more complex schemas that include other data types, validations, etc. Here is the full schema definition for this site's blog post schema:
+
+```typescript
+const blog = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z
+      .string()
+      .or(z.date())
+      .transform((val) => new Date(val)),
+    updatedDate: z
+      .string()
+      .optional()
+      .transform((str) => (str ? new Date(str) : undefined)),
+    heroImage: z.string().optional(),
+  }),
+});
+```
+
+Now, Astro will validate the content in the "posts" collection against the specified schema and provide TypeScript type information for the content fields, making it easier to work with the data in your templates.
+
+## Creating Content
+
+With your schema defined, now it's time to create some content! Astro supports Markdown and MDX (with the [@astrojs/mdx integration](https://docs.astro.build/en/guides/integrations-guide/mdx/) ) files out of the box, so you can create your content in either format. The folder that you put your content in is dependent on how you named your content in the exported object from the configuration file. For example, I named my blog collection as `blog` as shown here.
+
+```typescript
+export const collections = {
+  blog: blogCollection,
+};
+```
+
+Based on the name of your collection, you would then place your content files inside of the associated directly under the `content` directory. For example, if you named your collection `blog`, you would place your content files in the `content/blog` directory. Here's an example of a blog post in Markdown format:
+
+```markdown
+---
+title: How to Use Astro Content Collections
+description: Content collections allow you to manage, author, and organize content in any Astro project.
+pubDate: '2023-06-26'
+updatedDate: '2023-06-26'
+heroImage: /images/blog-covers/how-to-use-content-collections.jpg
+---
+
+Many developers, including myself, opt to maintain all of their site's content in their source code using `.md` and/or `.mdx` files instead of using a traditional Headless CMS. However, as I've learned from hands-on experience, maintaining this content without a solid structure in place can be a pain!
+```
+
+Notice anything familiar about that content? Well, it's actually a copy of the source markdown for this blog posts. How meta right? 😄
+
+## How to Query and Filter Content
+
+Astro provides a powerful querying and filtering mechanism to retrieve content from your collections. To query your content, you'll use the built-in `getCollection` function imported from `astro:content`. From there, you'll pass the name of the collection you want to query like so:
+
+```typescript
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+```
+
+### Querying a Single Item
+
+If you want to query one single item from your collection, you can do it based on the `slug` (typically used as the path in the URL for that item) of your item. This slug is automatically generated based on the filename of your content file. For example, if you have a content file named `how-to-use-content-collections.md`, the slug for that item would be `how-to-use-content-collections`. You can then query that item like so:
+
+```typescript
+import { getEntry } from 'astro:content';
+
+const post = await getEntry('blog', 'how-to-use-content-collections');
+```
+
+### Filtering Content Collections
+
+Let's say you only want to query blog posts that have been published based on the `pubDate` property in the frontmatter. You can do that by passing a `filter` method as a second parameter to `getCollection`. Here's an example:
+
+```typescript
+import { getCollection } from 'astro:content';
+
+const posts = (
+  await getCollection(
+    'blog',
+    ({ data }: CollectionEntry<'blog'>) => data.pubDate <= new Date()
+  )
+)
+```
+
+You can then add a sort method to sort the posts by the `pubDate` property like so:
+
+```typescript
+const posts = (
+  await getCollection(
+    'blog',
+    ({ data }: CollectionEntry<'blog'>) => data.pubDate <= new Date()
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+```
+
+## Rendering Content in Templates
+After querying your data, you'll need to render it to a page. Each content collection item has a `render` function that returns an object with a `Content` property. This property can be used like a regular component. Additionally, you can reference your frontmatter data of your item with the `data` property. 
+
+Here's an example of how you would render the main content a blog post:
+
+```astro
+---
+const post = await getEntry('blog', 'how-to-use-content-collections');
+const {Content} = await post.render();
+---
+<h1>{post.data.title}</h1>
+<Content/>
+```
+
+## Get Started Today
+
+Content Collections in Astro are, by far, the best way I've seen to manage markdown content effectively from within your source code. The fact that you get typings for your content using Zod really is a game changer.
+
+
+<Newsletter heading="Want to Learn More?" subheading="Sign up for Astro tips, course updates, and an exclusive launch day discount." buttonText="Start Learning" client:visible/>
+
+Start exploring Content Collections in Astro today and take your static site generation to the next level!

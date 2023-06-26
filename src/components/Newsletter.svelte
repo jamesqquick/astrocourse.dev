@@ -4,6 +4,7 @@
   const newsletterId = import.meta.env.PUBLIC_NEWSLETTER_ID;
   const subscribeURL = import.meta.env.PUBLIC_NEWSLETTER_SUBSCRIBE_URL;
   export let heading: string | null = null;
+  export let subheading: string | null = null;
   export let buttonText: string;
   let email = '';
   let errorMsg: string | null = null;
@@ -49,13 +50,13 @@
   <div
     class="absolute border-4 bg-white border-purple-200 -top-24 md:-top-12 right-[50%] translate-x-1/2 md:translate-x-0 md:-right-12 h-36 w-36 rounded-full flex flex-col items-center justify-center text-center p-1 md:p-2"
   >
-    <p class="text-violet-900 text-4xl font-bold relative">
+    <p class="text-violet-900 text-4xl font-bold relative !my-0">
       25 <span
         class="absolute text-lg text-violet-700 -top-0 md:-top-2 -right-4 md:-right-4"
         >%</span
       >
     </p>
-    <p class="text-violet-900 text-base">Early bird discount</p>
+    <p class="text-violet-900 text-base !my-0">Early bird discount</p>
   </div>
 
   {#if !successMsg}
@@ -66,15 +67,22 @@
         {heading}
       </h2>
     {/if}
-    <p class=" text-left text-light text-gray-700 text-xl mb-4">
-      Receive <span class="font-bold underline underline-offset-4"
-        >course updates</span
-      >
-      and a
-      <span class="font-bold underline underline-offset-4"
-        >25% discount code</span
-      > on launch day!
-    </p>
+    {#if subheading}
+      <p class=" text-left text-light text-gray-700 text-xl mb-4">
+        {subheading}
+      </p>
+    {:else}
+      <p class=" text-left text-light text-gray-700 text-xl mb-4">
+        Receive <span class="font-bold underline underline-offset-4"
+          >course updates</span
+        >
+        and a
+        <span class="font-bold underline underline-offset-4"
+          >25% discount code</span
+        > on launch day!
+      </p>
+    {/if}
+
     <!-- <form
         action="https://learn.jamesqquick.com/email_lists/515676/subscriptions"
         method="POST"
