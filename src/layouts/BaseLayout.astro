@@ -4,6 +4,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Hero from '../components/Hero.astro';
 import Navbar from '../components/Navbar.astro';
 import TaughtBy from '../components/TaughtBy.astro';
+
+const { showHeader } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -14,14 +16,18 @@ import TaughtBy from '../components/TaughtBy.astro';
   <body>
     <div class="min-h-screen bg-gradient-to-r from-blue-800 to-purple-800">
       <Navbar showLinks={false} />
-      <main class="px-10">
-        <Hero>
-          <span slot="heading">Astro Course Blog</span>
-          <span slot="subheading">
-            In-depth articles to help you learn to build websites the modern way
-            using Astro, the all-in-one framework for the modern web.
-          </span>
-        </Hero>
+      <main class="px-10 pb-40">
+        {
+          showHeader && (
+            <Hero>
+              <span slot="heading">Astro Course Blog</span>
+              <span slot="subheading">
+                In-depth articles to help you learn to build websites the modern
+                way using Astro, the all-in-one framework for the modern web.
+              </span>
+            </Hero>
+          )
+        }
 
         <div class="max-w-6xl mx-auto">
           <slot />

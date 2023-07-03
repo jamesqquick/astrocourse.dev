@@ -1,9 +1,9 @@
 ---
-title: Next.js Vs Astro Rendering Strategies
+title: Comparing Next.js Vs Astro Rendering Strategies
 description: Next.js and Astro are two popular web frameworks. Let's compare rendering strategies between the two.
-pubDate: '2023-07-06'
-updatedDate: '2023-07-06'
-heroImage: /images/blog-covers/nextjs-vs-astro-rendering-strategies
+pubDate: '2023-07-03'
+updatedDate: '2023-07-03'
+heroImage: /images/blog-covers/nextjs-vs-astro-rendering-strategies.jpg
 ---
 
 Next.js is one of the most popular JavaScript frameworks and has been for a few years. On the flip side, Astro is a newer framework that has built a lot of momentum in just the last year. That said, both frameworks provide lots of flexibility in terms of rendering web pages. In this article, we will explore and compare the different ways to render content using Astro and Next.js. By the end, you'll have a better understanding of the strengths and differences of each framework with regards to rendering strategies.
@@ -92,17 +92,24 @@ From there, all of your pages that query data will all do so on the server. This
 const response = await fetch('...');
 ```
 
-## Client-Side Rendering (CSR)
+## Hydration
+Earlier, we mentioned that Astro doesn't send JavaScript to the browser by default. This isn't the case with Next.js. Although Next.js can handle both statically generated and server rendered content, it still sends JavaScript to the browser every time. This client-side JavaScript is used to do a couple of things:
 
-Next.js also provides support for CSR, where content is rendered on the client-side using JavaScript. This approach is suitable for highly interactive and dynamic applications.
+- Loading additional data
+- Handling interactive JavaScript
+- Handling client-side routing
+- Handling client-side state management
+
+This process of loading JavaScript on the browser after the initial page render is called Hydration. This enables the full power of React in the browser.
+
+Although Astro doesn't support hydration default, you can enable frontend JavaScript by using the `client` directive on a given component. This allows you to control when and if JavaScript is loaded into the browser. On really neat aspect of this in Astro is the fact that you can use components written in other libraries: React, Vue, Svelte, etc.
+
+Astro also introduces an important concept called [Astro Islands](https://docs.astro.build/en/concepts/islands/). This essentially means that you can load JavaScript in certain pieces of your application. In other words, you have the ability to load JavaScript in certain "islands" but not others.
+
+For example, you might have a few components that need JavaScript like a header, carousel, model, etc. You can choose to load JavaScript for these specific components, but not for the rest of the page. This is a really powerful concept that allows you to optimize your application for performance.
 
 ## Hybrid Rendering
-
-Next.js offers a hybrid approach, combining SSG and CSR. This allows developers to pre-render some parts of the page and leave others for client-side rendering, achieving a balance between performance and interactivity.
-
-Astro takes a different approach by providing a "build-less" paradigm where components are compiled into static assets and consumed by various rendering methods. It seamlessly integrates with other frameworks, allowing flexibility in choosing the most suitable rendering strategy for different parts of your application.
-
-
-## Server Components
+In short, both of these frameworks allow you to mix and match all of the strategies above 🥰
 
 ## Conclusion
+Next.js and Astro are both incredible frameworks that have immense flexibility and power. Hopefully this article has helped you understand the different ways to render content using Astro and Next.js. If you have any questions, feel free to reach out on [Twitter](https://twitter.com/jamesqquick)!
