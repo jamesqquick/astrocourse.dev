@@ -1,5 +1,9 @@
 ---
+import Icon from 'astro-icon';
 import BaseHead from '../components/BaseHead.astro';
+import Hero from '../components/Hero.astro';
+import Navbar from '../components/Navbar.astro';
+import TaughtBy from '../components/TaughtBy.astro';
 ---
 
 <!DOCTYPE html>
@@ -8,20 +12,21 @@ import BaseHead from '../components/BaseHead.astro';
     <BaseHead {...Astro.props} />
   </head>
   <body>
-    <main
-      class="min-h-screen text-white bg-gradient-to-r from-blue-800 to-purple-800"
-    >
-      <div
-        class="h-20 m-0 flex justify-center items-center bg-violet-900 bg-opacity-60"
-      >
-        <p class="text-xl text-gray-200 underline text-center">
-          <a href="/"> Learn to build modern websites with Astro!</a>
-        </p>
-      </div>
-      <div class="max-w-4xl mx-auto py-10 px-10">
-        <slot />
-      </div>
-    </main>
-    <!-- <Footer /> -->
+    <div class="min-h-screen bg-gradient-to-r from-blue-800 to-purple-800">
+      <Navbar showLinks={false} />
+      <main class="px-10">
+        <Hero>
+          <span slot="heading">Astro Course Blog</span>
+          <span slot="subheading">
+            In-depth articles to help you learn to build websites the modern way
+            using Astro, the all-in-one framework for the modern web.
+          </span>
+        </Hero>
+
+        <div class="max-w-6xl mx-auto">
+          <slot />
+        </div>
+      </main>
+    </div>
   </body>
 </html>

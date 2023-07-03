@@ -3,6 +3,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { CollectionEntry, getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from 'astro-icon';
+import TaughtBy from '../../components/TaughtBy.astro';
 
 const posts = (
   await getCollection(
@@ -14,36 +16,32 @@ const posts = (
 
 <BaseLayout title="Blog - Build Modern Websites with Astro">
   <section>
-    <h1 class="text-center text-4xl my-20 font-bold text-purple-100">
-      Astro Articles <span class="font-normal opacity-90">
-        by James Q Quick</span
-      >
-    </h1>
-
-    <ul class="grid grid-cols-1 lg:gap-y-8 gap-y-6 mx-auto mb-40">
+    <div class="text-white flex justify-center my-16">
+      <TaughtBy />
+    </div>
+    <ul class="grid grid-cols-1 lg:grid-cols-2 lg:gap-8 gap-6 pb-20">
       {
         posts.map((post) => (
-          <li class="">
+          <li class="bg-blue-950 py-8 px-6 rounded-xl z-10 border border-1 border-blue-100">
+            <div class="text-right opacity-80 mb-2">
+              <FormattedDate date={post.data.pubDate} />
+            </div>
+            <h2 class="text-3xl md:text-4xl text-white font-bold mb-2 overflow-hidden line-clamp-2">
+              {post.data.title}
+            </h2>
+            <p class="text-lg opacity-70 mb-6 text-white overflow-hidden line-clamp-2">
+              {post.data.description}
+            </p>
+
             <a
               href={`/blog/${post.slug}/`}
-              class="text-2xl block hover:-translate-y-1 transition-transform border border-gray-100 rounded-lg"
+              class="text-lg text-right block text-blue-400 font-bold hover:-translate-y-1 transition-transform "
             >
-              <div class=" py-8 px-4 rounded-xl">
-                <FormattedDate date={post.data.pubDate} />
-                <h2 class="text-4xl">{post.data.title}</h2>
-                <p class="text-lg opacity-90">{post.data.description}</p>
-              </div>
+              Read More <Icon name="mdi:arrow-right" class="inline h-6" />
             </a>
           </li>
         ))
       }
     </ul>
-    <!-- 
-    <div class="bg-violet-900 bg-opacity-60">
-      <div class="rounded-lg">
-        <Newsletter heading="Stay Up To Date" buttonText="Get Updates!" />
-      </div>
-    </div>
-  </section> -->
   </section>
 </BaseLayout>

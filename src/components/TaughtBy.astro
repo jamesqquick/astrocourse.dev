@@ -1,0 +1,20 @@
+---
+import { Image } from '@astrojs/image/components';
+import selfie from '../images/selfie.jpeg';
+---
+
+<div class="flex items-center mb-0 gap-x-4">
+  <Image
+    class="rounded-full h-16 w-16 inline-block"
+    src={selfie}
+    width={64}
+    height={64}
+    alt="James Q Quick taking a selfie"
+  />
+  <p>
+    Taught by <a
+      class="font-bold underline underline-offset-4"
+      href="https://jamesqquick.com/">James Q Quick</a
+    >
+  </p>
+</div>

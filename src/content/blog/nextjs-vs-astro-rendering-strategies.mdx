@@ -1,0 +1,108 @@
+---
+title: Next.js Vs Astro Rendering Strategies
+description: Next.js and Astro are two popular web frameworks. Let's compare rendering strategies between the two.
+pubDate: '2023-07-06'
+updatedDate: '2023-07-06'
+heroImage: /images/blog-covers/nextjs-vs-astro-rendering-strategies
+---
+
+Next.js is one of the most popular JavaScript frameworks and has been for a few years. On the flip side, Astro is a newer framework that has built a lot of momentum in just the last year. That said, both frameworks provide lots of flexibility in terms of rendering web pages. In this article, we will explore and compare the different ways to render content using Astro and Next.js. By the end, you'll have a better understanding of the strengths and differences of each framework with regards to rendering strategies.
+
+## Static Site Generation (SSG)
+
+With SSG, pages are pre-rendered during the build process and served as static HTML files. This approach offers improved performance and SEO benefits. Both Astro and Next.js support SSG. Here's a quick comparison.
+
+With Next.js, to query content for a static page, you need to export a `getStaticProps` function inside of your page component.
+
+```javascript
+export async function getStaticProps() {
+  const posts = await getPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+```
+
+Additionally, if you need to generate dynamic URL paths based on your static content, you can export the `getStaticPaths` function.
+
+```javascript
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { ... } },
+      { params: { ... } },
+    ],
+  };
+};
+```
+
+To accomplish this same idea is even simpler in Astro since Astro builds statically generated content by default. This means you don't have to export a specific function to generate static content. Instead, you can simply use the `fetch` function to query your data like so:
+
+```javascript
+const response = await fetch('...');
+```
+
+This data will then be available to render in your static page. If you need to generate URL paths based on your static content, you can export a `getStaticPaths` function similar to Next.js.
+
+```javascript
+export async function getStaticPaths() {
+  return [
+    { params: { ... } },
+    { params: { ... } },
+  ];
+}
+```
+
+## Server-Side Rendering (SSR)
+
+As opposed to SSG, SSR content is generated on the server at request time. This means when the request for a page comes in, the server will generate the HTML for that page and send it back to the client. This approach is ideal for dynamic content that needs to be personalized for each user. Both Astro and Next.js support SSR. Here's a quick comparison.
+
+With Next.js, to query content for a server rendered page, you need to export a `getServerSideProps` function inside of your page component.
+
+```javascript
+export async function getServerSideProps() {
+  const posts = await getPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+```
+
+With Astro, it's a bit different. Because Astro is configured for SSG by default, if you want to render content on the server, you have to enable SSR in your Astro config file by defining the `output` property to be `server`.
+
+```javascript
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  output: 'server',
+});
+```
+
+> By configuring your output as `server`, **all of your pages will be rendered on the server instead of statically**. If you want to render some pages on the server and some pages statically, you have to explicitly define that for individual pages (more on this shortly).
+
+From there, all of your pages that query data will all do so on the server. This means you don't have to export a specific function to generate server rendered content. Instead, you can simply use the `fetch` function to query your data the same as above:
+
+```javascript
+const response = await fetch('...');
+```
+
+## Client-Side Rendering (CSR)
+
+Next.js also provides support for CSR, where content is rendered on the client-side using JavaScript. This approach is suitable for highly interactive and dynamic applications.
+
+## Hybrid Rendering
+
+Next.js offers a hybrid approach, combining SSG and CSR. This allows developers to pre-render some parts of the page and leave others for client-side rendering, achieving a balance between performance and interactivity.
+
+Astro takes a different approach by providing a "build-less" paradigm where components are compiled into static assets and consumed by various rendering methods. It seamlessly integrates with other frameworks, allowing flexibility in choosing the most suitable rendering strategy for different parts of your application.
+
+
+## Server Components
+
+## Conclusion

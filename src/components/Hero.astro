@@ -1,14 +1,13 @@
 ---
 import Newsletter from './Newsletter.svelte';
-import selfie from '../images/selfie.jpeg';
 import astroIcon from '../images/astroIcon.svg';
-import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 import Boxes from './Boxes.astro';
+import TaughtBy from './TaughtBy.astro';
 ---
 
 <div
-  class={` pt-20 px-4 sm:px-10 md:px-20 p-2  flex flex-col md:items-center text-white md:text-center relative overflow-x-clip`}
+  class={` pt-20  p-2  flex flex-col md:items-center text-white md:text-center relative overflow-x-clip`}
 >
   <img
     src={astroIcon.src}
@@ -21,43 +20,18 @@ import Boxes from './Boxes.astro';
       class="underline underline-offset-4 text-xl mb-8 lg:mb-14 font-bold text-gray-300 flex items-center gap-x-2 justify-start md:justify-center"
     >
       <Icon name="ph:clock" class="h-8 w-8" />
-      Coming Summer 2023
+      Full Course Coming Summer 2023
     </p>
     <h1
       class="text-5xl md:text-6xl lg:text-8xl max-w-6xl mx-auto font-bold mb-4 md:mb-6 tracking-wider"
     >
-      Build Modern <span class="block">Websites with Astro!</span>
+      <slot name="heading" />
     </h1>
     <p
       class="tracking-wider max-w-4xl text-xl md:text-2xl font-light italic text-gray-200"
     >
-      A hands-on course to teach you how to build websites the modern way using
-      Astro, the all-in-one framework for the modern web.
+      <slot name="subheading" />
     </p>
-  </div>
-
-  <div class="flex items-center my-20 mb-0 gap-x-4">
-    <Image
-      class="rounded-full h-16 w-16 inline-block"
-      src={selfie}
-      width={64}
-      height={64}
-      alt="James Q Quick taking a selfie"
-    />
-    <p>
-      Taught by <a
-        class="font-bold underline underline-offset-4"
-        href="https://jamesqquick.com/">James Q Quick</a
-      >
-    </p>
-  </div>
-
-  <div class="w-full max-w-3xl text-left translate-y-40">
-    <Newsletter
-      heading={`Sign up today!`}
-      buttonText={'Join the Waitlist!'}
-      client:load
-    />
   </div>
 
   <div class="absolute top-0 -right-56 opacity-10">
