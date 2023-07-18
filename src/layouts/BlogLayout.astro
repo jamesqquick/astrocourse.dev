@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
+import YouTube from '../components/YouTube.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -11,6 +12,7 @@ const {
   pubDate,
   updatedDate,
   heroImage,
+  youTubeVideoId,
   showHeader = false,
 } = Astro.props;
 ---
@@ -25,8 +27,10 @@ const {
     class="prose prose-invert prose-xl lg:prose-2xl mx-auto text-gray-50"
   >
     <div class="mb-10">
+      {youTubeVideoId && <YouTube id={youTubeVideoId} />}
+
       {
-        heroImage && (
+        !youTubeVideoId && heroImage && (
           <img
             width={1920}
             height={1080}
