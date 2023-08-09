@@ -122,10 +122,10 @@
       Success!
     </h2>
 
-    <p class={`text-xl  md:text-2xl text-white mb-4 text-center`}>
+    <p class={`text-xl  md:text-2xl text-gray-700 mb-4 text-center`}>
       You just made an amazing decision. 👏
     </p>
-    <p class={`text-lg  md:text-xl text-white mb-4 text-center`}>
+    <p class={`text-lg  md:text-xl text-gray-700 mb-4 text-center`}>
       Keep an eye out for course updates and an exclusive launch discount! 🔥🔥
     </p>
   {/if}
