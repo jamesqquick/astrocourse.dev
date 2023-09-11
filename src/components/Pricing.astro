@@ -1,5 +1,45 @@
-<script src="https://cdn.podia.com/embeds.js" async="async"></script><a
-  href="https://learn.jamesqquick.com/test-course"
-  data-podia-embed="link">Buy Me!</a
+---
+import PricingCard, { Pricing } from './PricingCard.astro';
+import Section from './Section.astro';
+
+const premiumPricing: Pricing = {
+  title: 'Premium (SSG + SSR)',
+  cost: 150,
+  bullets: [
+    'Everything From the Basic Package',
+    'Automatic Cover Images with Cloudinary',
+    'Server-side Rendering, Handling Forms, and API Routes',
+    'Integrating Xata Database',
+    'Building a Basic Auth Strategy Using Cookies',
+  ],
+  featured: true,
+  href: 'https://learn.jamesqquick.com/astro-course',
+};
+const basicPricing: Pricing = {
+  title: 'Basic (SSG Only)',
+  cost: 75,
+  bullets: [
+    'Astro Components, Integrations, and Islands',
+    'Markdown and Content Collections with Zod and TypeScript',
+    'Dynamic Routes, Pagination, and SEO',
+    'Image Optimization',
+    'Deploying to Vercel and Netlify',
+  ],
+  href: 'https://learn.jamesqquick.com/c0f821a5-6b5d-4668-82fe-4e4684e22d0e',
+};
+---
+
+<Section
+  heading="Ready to Start Learning?"
+  hasLeftBox={true}
+  hasBg={false}
+  id="pricing"
+  subheading={`Learn everything you need to know about one of the most exciting frameworks in JavaScript!`}
 >
-<div class="bg-cover bg-[url('/Circuit-Pattern-White.svg')]"></div>
+  <div
+    class="grid grid-cols-1 lg:grid-cols-[1fr,1fr] justify-stretch items-center ml[10px] max-w-4xl mx-auto"
+  >
+    <PricingCard pricing={basicPricing} />
+    <PricingCard pricing={premiumPricing} />
+  </div>
+</Section>

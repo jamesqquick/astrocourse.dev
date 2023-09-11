@@ -1,0 +1,53 @@
+---
+export interface Pricing {
+  title: string;
+  cost: number;
+  bullets: string[];
+  featured?: boolean;
+  href: string;
+}
+
+export type Props = {
+  pricing: Pricing;
+};
+
+const { pricing } = Astro.props;
+---
+
+<div
+  class={`shadow-xl  bg-white rounded-xl p-10  flex flex-col  ${
+    pricing.featured
+      ? 'shadow-purple-900 border-8 border-purple-400 py-20 -ml-[10px]'
+      : ''
+  }`}
+>
+  <h3 class="text-xl font-bold text-purple-900 mb-2 text-center">
+    {pricing.title}
+  </h3>
+  <p
+    class="text-7xl font-bold text-gray-700 mb-10 flex justify-center items-start"
+  >
+    <span class="text-sm">US</span> ${pricing.cost}
+    <span class="text-sm">00</span>
+  </p>
+  <ul class="mb-4 flex flex-col gap-y-4">
+    {
+      pricing.bullets.map((bullet) => (
+        <li class="text-gray-900 text-lg ml-4 relative flex items-center">
+          <span class="absolute -left-8">✅</span> {bullet}
+        </li>
+      ))
+    }
+  </ul>
+
+  <a
+    class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
+    href={pricing.href}
+    data-podia-embed="link"
+  >
+    Buy Now
+  </a>
+  <p class="text-sm text-light text-gray-700 mb-4">
+    *30 day money-back guarantee
+  </p>
+</div>
