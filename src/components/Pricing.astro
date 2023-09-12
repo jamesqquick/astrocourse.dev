@@ -3,10 +3,10 @@ import PricingCard, { Pricing } from './PricingCard.astro';
 import Section from './Section.astro';
 
 const premiumPricing: Pricing = {
-  title: 'Premium (SSG + SSR)',
+  title: 'Full-stack (Premium Package)',
+  subheading: 'Static Site Generation + Server-side Rendering',
   cost: 150,
   bullets: [
-    'Server-side Rendering',
     'Automatic Cover Images with Cloudinary',
     'Handling Forms and API Routes',
     'Database Integration Using Xata',
@@ -17,10 +17,10 @@ const premiumPricing: Pricing = {
   href: 'https://learn.jamesqquick.com/astro-course',
 };
 const basicPricing: Pricing = {
-  title: 'Basic (SSG Only)',
+  title: 'Half-stack (Basic Package)',
+  subheading: 'Static Site Generation Only',
   cost: 75,
   bullets: [
-    'Static Site Generation',
     'Astro Components, Integrations, and Islands',
     'Markdown and Content Collections with Zod and TypeScript',
     'Dynamic Routes, Pagination, and SEO',
@@ -39,7 +39,7 @@ const basicPricing: Pricing = {
   subheading={`Learn everything you need to know about one of the most exciting frameworks in JavaScript!`}
 >
   <div
-    class="grid grid-cols-1 gap-y-10 lg:grid-cols-[1fr,1fr] justify-stretch items-center ml[10px] max-w-xl lg:max-w-4xl mx-auto"
+    class="grid grid-cols-1 gap-y-10 lg:grid-cols-[1fr,1fr] justify-stretch items-center ml[10px] max-w-xl lg:max-w-6xl mx-auto"
   >
     <PricingCard pricing={basicPricing} />
     <PricingCard pricing={premiumPricing} />
