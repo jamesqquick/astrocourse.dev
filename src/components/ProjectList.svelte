@@ -1,17 +1,9 @@
 <script lang="ts">
   const projects = [
     {
-      title: 'Supercharged Markdown Blog',
-      description: `Building a basic blog is a given, but for this demo, you'll take it to the next level by adding powerful features like tags, pagination, authentication, comments, and more.`,
+      title: 'Full-stack Markdown Blog',
+      description: ``,
     },
-    // {
-    //   title: 'Personal Portfolio',
-    //   description: `Experience the power of MDX by building a personal portfolio as well as a contact form using API routes with an SSR enabled Astro project.`,
-    // },
-    // {
-    //   title: 'Modern Meetup Clone',
-    //   description: `This demo takes you beyond embedded markdown content as you incorporate Storyblok, a powerful Headless CMS. You'll also embedded maps using Google Maps as well as internationalization, and more!`,
-    // },
   ];
 
   let selectedIndex = 1;
@@ -22,23 +14,73 @@
 </script>
 
 <div
-  class="text-xl flex flex-col lg:flex-row gap-y-24 my-8 xl:gap-x-10 items-center relative mb-20"
+  class="text-xl flex flex-col lg:flex-row gap-y-24 my-8 lg:gap-x-10 items-center relative mb-20"
 >
   <div
     class="gap-x-4 lg:w-1/2 items-center border border-white p-8 rounded-xl text-left"
   >
     <div class="flex gap-x-2 items-center mb-1 justify-center lg:justify-start">
-      <h3 class="text-white text-2xl font-bold mb-2 text-center">
+      <h3 class="text-white text-3xl font-bold mb-2">
         {projects[0].title}
       </h3>
     </div>
-    <span class="block text-lg text-gray-200">
-      {projects[0].description}
+    <span class="block text-xl text-gray-200">
+      In this course, you'll take your blog to the next level by adding powerful
+      features like tags, pagination, authentication, comments, and more! You'll
+      also learn to use modern technologies like
+      <a class="underline underline-offset-4" href="https://tailwindcss.com/"
+        >Tailwind CSS</a
+      >,
+      <a
+        class="underline underline-offset-4"
+        href="https://www.typescriptlang.org/">TypeScript</a
+      >,
+      <a class="underline underline-offset-4" href="https://xata.io/">Xata</a>,
+      and
+      <a class="underline underline-offset-4" href="https://cloudinary.com/"
+        >Cloudinary</a
+      >!
     </span>
+    <div
+      class="flex flex-col sm:flex-row items-center gap-x-6 gap-y-10 justify-center mt-10"
+    >
+      <a
+        href="https://tailwindcss.com/"
+        class="hover:scale-110 transition-transform"
+        ><img
+          src="/images/logos/tailwind.svg"
+          class="h-8"
+          alt="Tailwind Icon"
+        /></a
+      >
+      <a
+        href="https://www.typescriptlang.org/"
+        class="hover:scale-110 transition-transform"
+        ><img
+          src="/images/logos/typescript.svg"
+          class="h-8"
+          alt="TypeScript Icon"
+        /></a
+      >
+      <a href="https://xata.io/" class="hover:scale-110 transition-transform"
+        ><img
+          src="/images/logos/cloudinary.svg"
+          class="h-8"
+          alt="Xata Icon"
+        /></a
+      >
+      <a
+        href="https://cloudinary.com/"
+        class="hover:scale-110 transition-transform"
+        ><img
+          src="/images/logos/xata.svg"
+          class="h-8"
+          alt="Cloudinary Icon"
+        /></a
+      >
+    </div>
   </div>
-  <div
-    class=" lg:w-2/3 lg:relative translate-x-0 lg:translate-x-40 -order-1 lg:order-2"
-  >
+  <div class=" lg:w-2/3 lg:relative translate-x-0 lg:translate-x-40 order-2">
     <div
       class="absolute -top-5 -bottom-5 left-10 right-0 bg-purple-400 rounded-lg opacity-20"
     />
@@ -48,11 +90,4 @@
       class="rounded-lg z-10 relative"
     />
   </div>
-</div>
-<div class="flex flex-col sm:flex-row gap-x-6 gap-y-10 justify-center">
-  <!-- <img src="/images/logos/astro.svg" class="h-8" alt="Astro Icon" /> -->
-  <img src="/images/logos/cloudinary.svg" class="h-8" alt="Astro Icon" />
-  <!-- <img src="/images/logos/storyblok.svg" class="h-8" alt="Astro Icon" /> -->
-  <img src="/images/logos/tailwind.svg" class="h-8" alt="Astro Icon" />
-  <img src="/images/logos/xata.svg" class="h-8" alt="Astro Icon" />
 </div>
