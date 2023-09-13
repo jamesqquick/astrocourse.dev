@@ -1,0 +1,41 @@
+---
+export type Props = {
+  heading?: string;
+  subheading?: string;
+  buttonText?: string;
+};
+
+const { heading, subheading, buttonText } = Astro.props;
+---
+
+<div class="relative bg-white py-6 p-4 pt-12 md:p-10 rounded-2xl">
+  <!-- <div
+    class="absolute border-4 bg-white border-purple-200 -top-24 md:-top-12 right-[50%] translate-x-1/2 md:translate-x-0 md:-right-12 h-36 w-36 rounded-full flex flex-col items-center justify-center text-center p-1 md:p-2"
+  >
+    <p class="text-violet-900 text-4xl font-bold relative !my-0">
+      25 <span
+        class="absolute text-lg text-violet-700 -top-0 md:-top-2 -right-4 md:-right-4"
+        >%</span
+      >
+    </p>
+    <p class="text-violet-900 text-base !my-0">Early bird discount</p>
+  </div> -->
+  {
+    heading && (
+      <h2
+        class={`text-3xl font-bold md:text-4xl text-purple-900 mb-2 md:mb-4 `}
+      >
+        {heading}
+      </h2>
+    )
+  }
+
+  {
+    subheading && (
+      <p class=" text-left text-light text-gray-700 text-xl mb-4">
+        {subheading}
+      </p>
+    )
+  }
+  <slot />
+</div>

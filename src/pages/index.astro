@@ -10,10 +10,10 @@ import Newsletter from '../components/Newsletter.svelte';
 import Pricing from '../components/Pricing.astro';
 import Navbar from '../components/Navbar.astro';
 import Overview from '../components/Overview.astro';
-import NewsletterSection from '../components/NewsletterSection.astro';
 import Topics from '../components/Topics.astro';
 import Footer from '../components/Footer.astro';
 import TaughtBy from '../components/TaughtBy.astro';
+import WhiteCallout from '../components/WhiteCallout.astro';
 
 export const prerender = true;
 ---
@@ -22,6 +22,7 @@ export const prerender = true;
 <html lang="en" class="scroll-smooth">
   <head>
     <BaseHead />
+    <script src="https://cdn.podia.com/embeds.js" async="async"></script>
   </head>
   <body>
     <main class="bg-gradient-to-r from-blue-800 to-purple-800">
@@ -32,27 +33,41 @@ export const prerender = true;
             >Build Modern <span class="block">Websites with Astro!</span></span
           >
           <span slot="subheading">
-            A hands-on course to teach you how to build websites the modern way
-            using Astro, the all-in-one framework for the modern web.
+            A hands-on course to teach you how to build websites using Astro
+            3.0, the all-in-one framework for the modern web.
           </span>
         </Hero>
       </div>
       <div class="text-white flex justify-center my-10 relative z-10">
         <TaughtBy />
       </div>
-
       <div class="w-full max-w-3xl mx-auto text-left translate-y-40 px-10">
+        <WhiteCallout
+          heading="Updated for Astro 3.0!"
+          subheading="This course has been been completely reworked to work with Astro 3.0"
+        >
+          <a
+            class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
+            href="#pricing"
+          >
+            Start Learning
+          </a>
+        </WhiteCallout>
+      </div>
+
+      <!-- <div class="w-full max-w-3xl mx-auto text-left translate-y-40 px-10">
         <Newsletter
           heading={`Sign up today!`}
           buttonText={'Join the Waitlist!'}
           client:load
         />
-      </div>
+      </div> -->
       <Overview />
       <WhatYouBuild />
       <Topics />
       <WhoItsFor />
       <Instructor />
+      <Pricing />
       <!-- <NewsletterSection /> -->
       <FAQSection />
       <!-- <Pricing /> -->

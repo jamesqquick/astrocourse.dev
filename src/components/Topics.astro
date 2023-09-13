@@ -5,31 +5,33 @@ import Section from './Section.astro';
 
 const topics = [
   {
-    title: 'Static vs Dynamic Routes',
-    description: 'Learn about Static vs Dynamic Routes and SSG & SSR',
+    title: 'Static Site Generation vs Server-side Rendering',
+    description:
+      'Learn about the multiple strategies Astro provides for rendering pages in the browser',
     icon: 'iconoir:frame-tool',
   },
   {
-    title: 'Astro Islands',
-    description: `Build faster with reusable UI components using Astro's component-based architecture`,
-    icon: 'akar-icons:light-bulb',
-  },
-  {
-    title: 'MDX and Headless CMS',
+    title: 'Content Collections',
     description:
-      'Create dynamic content and update your website without pushing new code',
+      'Create, organize, and validate your markdown content using Content Collections',
     icon: 'akar-icons:paper',
   },
   {
-    title: 'Dynamic Image Optimization',
+    title: 'Image Optimization',
     description:
-      'Use Cloudinary to request dynamic image sizes and formats on-the-fly',
+      'Use the Astro Image component to optimized images with lazy loading for faster load times',
     icon: 'tabler:camera',
   },
   {
-    title: 'Type-safety with Zod',
-    description: 'Ship your websites with confidence by type-checking with Zod',
+    title: 'TypeScript',
+    description:
+      'Use TypeScript to define prop types, database table models, and frontmatter schemas for Content Collections',
     icon: 'ant-design:safety-outlined',
+  },
+  {
+    title: 'Authentication',
+    description: `Learn to build a basic auth strategy using Server-side Rendering, Xata (PostgreSQL database), and cookies.`,
+    icon: 'akar-icons:light-bulb',
   },
   {
     title: 'Deploying and Hosting',
@@ -39,8 +41,7 @@ const topics = [
   },
 ];
 
-const subheading = `One thing you can be sure of is that we take no short-cuts! Core concepts
-      will be methodically covered for your understanding`;
+const subheading = `One thing you can be sure of is that we take no short-cuts! You will learn core Astro concepts hands-on and in-depth.`;
 const heading = `What topics are covered in this course?`;
 ---
 
