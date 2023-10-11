@@ -55,3 +55,15 @@ const { pricing } = Astro.props;
     *30 day money-back guarantee
   </p>
 </div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const coupon = urlParams.get('coupon');
+  if (coupon) {
+    const podiaLinks = document.querySelectorAll('[data-podia-embed="link"]');
+    console.log(podiaLinks);
+    podiaLinks.forEach((link) => {
+      link.dataset.coupon = coupon;
+    });
+  }
+</script>
