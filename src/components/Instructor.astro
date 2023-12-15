@@ -1,9 +1,9 @@
 ---
-import { Image } from '@astrojs/image/components';
 import selfie from '../images/selfie.jpeg';
 import GradientWrapper from './GradientWrapper.astro';
 import Heading2 from './Heading2.astro';
 import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
 ---
 
 <section
@@ -35,11 +35,13 @@ import { Icon } from 'astro-icon';
           <li>
             <Icon class="h-6 inline text-white mr-2" name="ph:check-circle" />
 
-            <span class="font-bold italic">10+ years</span> of teaching developers
+            <span class="font-bold italic">10+ years</span> of teaching
+            developers
           </li>
           <li>
             <Icon class="h-6 inline text-white mr-2" name="ph:check-circle" />
-            <span class="font-bold italic">200,000+</span> followers on social media
+            <span class="font-bold italic">200,000+</span> followers on social
+            media
           </li>
         </ul>
       </div>

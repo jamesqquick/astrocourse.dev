@@ -1,10 +1,13 @@
 import type { APIRoute } from 'astro';
 import { XataClient } from '../../../xata';
 
-export const get: APIRoute = async (context) => {
+export const GET: APIRoute = async (context) => {
   const { coupon } = context.params;
   console.log('Searching coupon');
-  const xata = new XataClient({ apiKey: import.meta.env.XATA_API_KEY });
+  const xata = new XataClient({
+    apiKey: import.meta.env.XATA_API_KEY,
+    branch: import.meta.env.XATA_BRANCH,
+  });
 
   const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
 

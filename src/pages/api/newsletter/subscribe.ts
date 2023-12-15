@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { validateEmail } from '../../../utils/newsletter';
 
-export const post: APIRoute = async (context) => {
+export const POST: APIRoute = async (context) => {
   const newsletterId = context.url.searchParams.get('id');
   if (!newsletterId) {
     return new Response(JSON.stringify({ msg: 'Newsletter id required' }), {
