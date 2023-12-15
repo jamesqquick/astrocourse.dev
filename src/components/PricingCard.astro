@@ -5,7 +5,11 @@ export interface Props {
 }
 
 const { pricing } = Astro.props;
-let discountedPrice = pricing.cost - (pricing.cost * pricing.discount) / 100;
+let discountedPrice;
+
+if (pricing.discount) {
+  pricing.cost - (pricing.cost * pricing.discount) / 100;
+}
 ---
 
 <div
