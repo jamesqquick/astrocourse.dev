@@ -8,7 +8,9 @@ const { pricing } = Astro.props;
 let discountedPrice;
 
 if (pricing.discount) {
-  pricing.cost - (pricing.cost * pricing.discount) / 100;
+  discountedPrice = Math.round(
+    pricing.cost - (pricing.cost * pricing.discount) / 100
+  );
 }
 ---
 
@@ -46,7 +48,7 @@ if (pricing.discount) {
               ${pricing.cost}{' '}
             </span>
             <span class=" text-7xl text-gray-700 font-bold">
-              {discountedPrice}
+              ${discountedPrice}
             </span>
           </span>
         </p>
