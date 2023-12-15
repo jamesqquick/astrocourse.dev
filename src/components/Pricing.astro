@@ -4,13 +4,19 @@ import type { Pricing } from '../types/courses';
 import PricingCard from './PricingCard.astro';
 import type { CouponsRecord } from '../xata';
 
-const coupon = Astro.url.searchParams.get('coupon')! || '';
-const url = `${Astro.url.origin}/api/coupons/${coupon}`;
+const coupon = Astro.url.searchParams.get('coupon') || '';
 let discount;
-const response = await fetch(url);
-if (response.ok) {
-  const data: CouponsRecord = await response.json();
-  discount = data.discount;
+if (coupon) {
+  try {
+    const url = `${Astro.url.origin}/api/coupons/${coupon}`;
+    const response = await fetch(url);
+    if (response.ok) {
+      const data: CouponsRecord = await response.json();
+      discount = data.discount;
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 const premiumPricing: Pricing = {
   title: 'Full-stack (Premium Package)',
