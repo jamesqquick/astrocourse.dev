@@ -27,9 +27,14 @@ if (pricing.discount) {
   </p>
   {
     !pricing.discount && (
-      <p class="text-7xl font-bold text-gray-700 mb-10 text-center">
-        ${pricing.cost}
-      </p>
+      <>
+        <p class="text-7xl font-bold text-gray-700 mb-10 text-center">
+          ${pricing.cost}
+        </p>
+        <p class="text-sm mb-10 text-gray-400 text-center">
+          Coupon - {pricing.coupon}
+        </p>
+      </>
     )
   }
   {
