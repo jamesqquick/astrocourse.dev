@@ -1,0 +1,18 @@
+{
+  "id": "mig_cltrg0qe54n38s74jurg",
+  "parentID": "mig_cltrfrj9oa72492s7j30",
+  "checksum": "1:7c4bba978ad4cc9116eca1b4ff823fdb2a81fad6bc64742aef8a1d94f84d635e",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "discount",
+          "type": "int",
+          "notNull": true,
+          "defaultValue": "0"
+        },
+        "table": "Coupons"
+      }
+    }
+  ]
+}

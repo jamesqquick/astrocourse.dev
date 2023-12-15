@@ -1,18 +1,11 @@
 ---
-export interface Pricing {
-  title: string;
-  subheading: string;
-  cost: number;
-  bullets: string[];
-  featured?: boolean;
-  href: string;
+import type { Pricing } from '../types/courses';
+export interface Props {
+  pricing: Pricing;
 }
 
-export type Props = {
-  pricing: Pricing;
-};
-
 const { pricing } = Astro.props;
+let discountedPrice = pricing.cost - (pricing.cost * pricing.discount) / 100;
 ---
 
 <div
@@ -28,12 +21,32 @@ const { pricing } = Astro.props;
   <p class="text-xl text-gray-500 mb-4 text-center">
     {pricing.subheading}
   </p>
-  <p
-    class="text-7xl font-bold text-gray-700 mb-10 flex justify-center items-start"
-  >
-    <span class="text-sm">US</span> ${pricing.cost}
-    <span class="text-sm">00</span>
-  </p>
+  {
+    !pricing.discount && (
+      <p class="text-7xl font-bold text-gray-700 mb-10 text-center">
+        ${pricing.cost}
+      </p>
+    )
+  }
+  {
+    pricing.discount && (
+      <>
+        <p class="text-7xl font-bold text-gray-700 text-center mb-2">
+          <span class=" flex flex-col ">
+            <span class="relative text-xl font-light text-gray-400 line-through">
+              ${pricing.cost}{' '}
+            </span>
+            <span class=" text-7xl text-gray-700 font-bold">
+              {discountedPrice}
+            </span>
+          </span>
+        </p>
+        <p class="text-sm mb-10 text-gray-400 text-center">
+          Coupon - {pricing.coupon}
+        </p>
+      </>
+    )
+  }
   <ul class="mb-4 flex flex-col gap-y-4">
     {
       pricing.bullets.map((bullet) => (
@@ -48,6 +61,7 @@ const { pricing } = Astro.props;
     class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
     href={pricing.href}
     data-podia-embed="link"
+    data-coupon={pricing.coupon}
   >
     Buy Now
   </a>
@@ -55,15 +69,3 @@ const { pricing } = Astro.props;
     *30 day money-back guarantee
   </p>
 </div>
-
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const coupon = urlParams.get('coupon');
-  if (coupon) {
-    const podiaLinks = document.querySelectorAll('[data-podia-embed="link"]');
-    console.log(podiaLinks);
-    podiaLinks.forEach((link) => {
-      link.dataset.coupon = coupon;
-    });
-  }
-</script>

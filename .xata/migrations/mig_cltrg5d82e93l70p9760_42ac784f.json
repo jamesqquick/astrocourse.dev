@@ -1,0 +1,18 @@
+{
+  "id": "mig_cltrg5d82e93l70p9760",
+  "parentID": "mig_cltrg2ae54n38s74jusg",
+  "checksum": "1:42ac784ffc5f816a4e581a4cd568fccc58008d30514c91c551ae9afd70462390",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "coupon",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "TESTCOUPON"
+        },
+        "table": "Coupons"
+      }
+    }
+  ]
+}

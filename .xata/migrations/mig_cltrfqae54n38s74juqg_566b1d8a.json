@@ -1,0 +1,11 @@
+{
+  "id": "mig_cltrfqae54n38s74juqg",
+  "checksum": "1:566b1d8a42dc448dc15636bb704cf80dde2fa26ecb631334ccb2c80fa9bd8504",
+  "operations": [
+    {
+      "addTable": {
+        "table": "Coupons"
+      }
+    }
+  ]
+}
