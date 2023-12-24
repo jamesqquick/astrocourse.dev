@@ -14,6 +14,23 @@ import Topics from '../components/Topics.astro';
 import Footer from '../components/Footer.astro';
 import TaughtBy from '../components/TaughtBy.astro';
 import WhiteCallout from '../components/WhiteCallout.astro';
+import Price from '../components/Price.astro';
+import type { CouponsRecord } from '../xata';
+
+const coupon = Astro.url.searchParams.get('coupon') || '';
+let discount;
+if (coupon) {
+  try {
+    const url = `${Astro.url.origin}/api/coupons/${coupon}`;
+    const response = await fetch(url);
+    if (response.ok) {
+      const data: CouponsRecord = await response.json();
+      discount = data.discount;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 ---
 
 <!doctype html>
@@ -44,12 +61,20 @@ import WhiteCallout from '../components/WhiteCallout.astro';
           heading="Updated for Astro 4.0!"
           subheading="This course has been been completely reworked to work with Astro 4.0"
         >
-          <a
-            class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
-            href="#pricing"
-          >
-            Start Learning
-          </a>
+          <div class="flex gap-x-4 items-end">
+            <!-- <Price
+              cost={150}
+              discount={discount}
+              coupon={coupon}
+              showCoupon={false}
+            /> -->
+            <a
+              class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
+              href="#pricing"
+            >
+              Start Learning
+            </a>
+          </div>
         </WhiteCallout>
       </div>
 
@@ -65,7 +90,7 @@ import WhiteCallout from '../components/WhiteCallout.astro';
       <Topics />
       <WhoItsFor />
       <Instructor />
-      <Pricing />
+      <Pricing coupon={coupon} discount={discount} />
       <!-- <NewsletterSection /> -->
       <FAQSection />
       <!-- <Pricing /> -->

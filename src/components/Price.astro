@@ -1,0 +1,41 @@
+---
+export interface Props {
+  cost: number;
+  discount?: number;
+  coupon?: string;
+  showCoupon?: boolean;
+}
+
+const { cost, discount, coupon, showCoupon = true } = Astro.props;
+
+let discountedPrice;
+
+if (discount) {
+  discountedPrice = Math.round(cost - (cost * discount) / 100);
+}
+---
+
+{
+  !discount && (
+    <p class="text-7xl font-bold text-gray-700 mb-10 text-center">${cost}</p>
+  )
+}
+{
+  discount && (
+    <>
+      <p class="text-7xl font-bold text-gray-700 text-center mb-2">
+        <span class=" flex flex-col ">
+          <span class="relative text-xl font-light text-gray-400 line-through">
+            ${cost}
+          </span>
+          <span class=" text-7xl text-gray-700 font-bold">
+            ${discountedPrice}
+          </span>
+        </span>
+      </p>
+      {showCoupon && (
+        <p class="text-sm mb-10 text-gray-400 text-center">Coupon - {coupon}</p>
+      )}
+    </>
+  )
+}
