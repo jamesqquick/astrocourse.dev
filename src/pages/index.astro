@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Hero from '../components/Hero.astro';
 import Instructor from '../components/Instructor.astro';
+
 import WhatYouBuild from '../components/WhatYouBuild.astro';
 import WhoItsFor from '../components/WhoItsFor.astro';
 import FAQSection from '../components/FAQSection.astro';
@@ -12,19 +13,16 @@ import Topics from '../components/Topics.astro';
 import Footer from '../components/Footer.astro';
 import TaughtBy from '../components/TaughtBy.astro';
 import WhiteCallout from '../components/WhiteCallout.astro';
+import Price from '../components/Price.astro';
 import { XataClient, type CouponsRecord } from '../xata';
 
 const coupon = Astro.url.searchParams.get('coupon') || '';
 let discount;
 if (coupon) {
   try {
-    const xata = new XataClient({
-      apiKey: import.meta.env.XATA_API_KEY,
-      branch: import.meta.env.XATA_BRANCH,
-    });
-
-    const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
-    discount = couponRecord?.discount;
+    const url = `${Astro.url.origin}/api/coupons/${coupon}`;
+    const response = await fetch(url);
+    const data: CouponsRecord = await response.json();
   } catch (error) {
     console.error(error);
   }

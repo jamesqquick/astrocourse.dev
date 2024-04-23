@@ -45,12 +45,16 @@ const links = [
     />
     Course
   </a>
-  <Button
-    isLink={true}
-    href="/#pricing"
-    text="Start Learning"
-    className="xl:hidden  hidden sm:block"
-  />
+  <div class="flex gap-x-10 items-center text-white">
+    <NavLink href="https://learn.jamesqquick.com/login" text="Login" />
+
+    <Button
+      isLink={true}
+      href="/#pricing"
+      text="Start Learning"
+      className="xl:hidden  hidden sm:block"
+    />
+  </div>
 
   <div id="menu" class="xl:flex hidden items-center justify-center">
     <div
@@ -60,7 +64,7 @@ const links = [
         showLinks &&
           links.map((link) => <NavLink href={link.href} text={link.text} />)
       }
-
+      <NavLink href="https://learn.jamesqquick.com/login" text="Login" />
       <Button isLink={true} href="/#pricing" text="Start Learning" />
     </div>
   </div>
