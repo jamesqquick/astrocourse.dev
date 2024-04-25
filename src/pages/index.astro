@@ -20,9 +20,11 @@ const coupon = Astro.url.searchParams.get('coupon') || '';
 let discount;
 if (coupon) {
   try {
-    const url = `${Astro.url.origin}/api/coupons/${coupon}`;
-    const response = await fetch(url);
-    const data: CouponsRecord = await response.json();
+    const xata = new XataClient({
+      apiKey: import.meta.env.XATA_API_KEY,
+    });
+    const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
+    discount = couponRecord?.discount;
   } catch (error) {
     console.error(error);
   }
@@ -87,9 +89,7 @@ if (coupon) {
       <WhoItsFor />
       <Instructor />
       <Pricing coupon={coupon} discount={discount} />
-      <!-- <NewsletterSection /> -->
       <FAQSection />
-      <!-- <Pricing /> -->
       <Footer />
     </main>
   </body>
