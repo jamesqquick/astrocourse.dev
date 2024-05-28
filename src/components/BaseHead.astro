@@ -25,6 +25,11 @@ const {
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<script
+  defer
+  data-domain="astrocourse.dev"
+  src="https://plausible.io/js/script.js"></script>
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -43,15 +48,3 @@ const {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7F6CKQYK5X"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'G-7F6CKQYK5X');
-</script>
