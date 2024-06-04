@@ -1,6 +1,6 @@
 ---
 import Icon from 'astro-icon';
-import ProjectList from './ProjectList.svelte';
+import ProjectList from './ProjectList.astro';
 import Section from './Section.astro';
 ---
 
@@ -12,7 +12,7 @@ import Section from './Section.astro';
   id="whatYouBuild"
 >
   <div class="xl:pl-30 mb-20">
-    <ProjectList client:load />
+    <ProjectList />
   </div>
 
   <ul
