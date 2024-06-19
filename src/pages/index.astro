@@ -15,13 +15,14 @@ import TaughtBy from '../components/TaughtBy.astro';
 import WhiteCallout from '../components/WhiteCallout.astro';
 import Price from '../components/Price.astro';
 import { XataClient, type CouponsRecord } from '../xata';
+import { XATA_API_KEY } from 'astro:env/server';
 
 const coupon = Astro.url.searchParams.get('coupon') || '';
 let discount;
 if (coupon) {
   try {
     const xata = new XataClient({
-      apiKey: import.meta.env.XATA_API_KEY,
+      apiKey: XATA_API_KEY,
     });
     const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
     discount = couponRecord?.discount;

@@ -1,8 +1,12 @@
 <script lang="ts">
   import { validateEmail } from '../utils/newsletter';
+  import {
+    PUBLIC_NEWSLETTER_ID,
+    PUBLIC_NEWSLETTER_SUBSCRIBE_URL,
+  } from 'astro:env/client';
 
-  const newsletterId = import.meta.env.PUBLIC_NEWSLETTER_ID;
-  const subscribeURL = import.meta.env.PUBLIC_NEWSLETTER_SUBSCRIBE_URL;
+  const newsletterId = PUBLIC_NEWSLETTER_ID;
+  const subscribeURL = PUBLIC_NEWSLETTER_SUBSCRIBE_URL;
   export let heading: string | null = null;
   export let subheading: string | null = null;
   export let buttonText: string;
