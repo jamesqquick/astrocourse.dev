@@ -1,12 +1,31 @@
 ---
-export interface Props {
-  cost: number;
-  discount?: number;
-  coupon?: string;
-  showCoupon?: boolean;
+import { XATA_API_KEY } from 'astro:env/server';
+import { XataClient } from '../xata';
+
+const referrerStr = Astro.request.headers.get('Referer');
+let discount;
+let coupon;
+if (referrerStr) {
+  const referrerURL = new URL(referrerStr);
+  coupon = referrerURL.searchParams.get('coupon');
+  if (coupon) {
+    try {
+      const xata = new XataClient({
+        apiKey: XATA_API_KEY,
+      });
+      const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
+      discount = couponRecord?.discount;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
-const { cost, discount, coupon, showCoupon = true } = Astro.props;
+export interface Props {
+  cost: number;
+}
+
+const { cost } = Astro.props;
 
 let discountedPrice;
 
@@ -33,9 +52,7 @@ if (discount) {
           </span>
         </span>
       </p>
-      {showCoupon && (
-        <p class="text-sm mb-10 text-gray-400 text-center">Coupon - {coupon}</p>
-      )}
+      <p class="text-sm mb-10 text-gray-400 text-center">Coupon - {coupon}</p>
     </>
   )
 }

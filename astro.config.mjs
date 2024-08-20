@@ -11,9 +11,10 @@ import svelte from '@astrojs/svelte';
 export default defineConfig({
   site: 'https://astrocourse.dev',
   integrations: [mdx(), sitemap(), tailwind(), svelte()],
-  output: 'server',
+  output: 'hybrid',
   adapter: netlify(),
   experimental: {
+    serverIslands: true,
     env: {
       schema: {
         PUBLIC_NEWSLETTER_ID: envField.number({

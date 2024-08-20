@@ -1,0 +1,18 @@
+---
+import { XATA_API_KEY } from 'astro:env/server';
+import { XataClient } from '../xata';
+
+const coupon = Astro.url.searchParams.get('coupon') || '';
+let discount;
+if (coupon) {
+  try {
+    const xata = new XataClient({
+      apiKey: XATA_API_KEY,
+    });
+    const couponRecord = await xata.db.Coupons.filter({ coupon }).getFirst();
+    discount = couponRecord?.discount;
+  } catch (error) {
+    console.error(error);
+  }
+}
+---

@@ -2,14 +2,6 @@
 import Section from './Section.astro';
 import type { Pricing } from '../types/courses';
 import PricingCard from './PricingCard.astro';
-import type { CouponsRecord } from '../xata';
-
-export interface Props {
-  discount?: number;
-  coupon?: string;
-}
-
-const { discount, coupon } = Astro.props;
 
 const premiumPricing: Pricing = {
   title: 'Full-stack (Premium Package)',
@@ -24,8 +16,6 @@ const premiumPricing: Pricing = {
   ],
   featured: true,
   href: 'https://learn.jamesqquick.com/astro-course',
-  coupon,
-  discount,
 };
 const basicPricing: Pricing = {
   title: 'Half-stack (Basic Package)',
@@ -39,8 +29,6 @@ const basicPricing: Pricing = {
     'Deploying to Vercel and Netlify',
   ],
   href: 'https://learn.jamesqquick.com/c0f821a5-6b5d-4668-82fe-4e4684e22d0e',
-  coupon,
-  discount,
 };
 ---
 

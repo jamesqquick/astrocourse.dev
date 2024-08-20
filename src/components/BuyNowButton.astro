@@ -1,0 +1,22 @@
+---
+const referrerStr = Astro.request.headers.get('Referer');
+let coupon;
+if (referrerStr) {
+  const referrerURL = new URL(referrerStr);
+  coupon = referrerURL.searchParams.get('coupon');
+}
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+  class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
+  href={href}
+  data-podia-embed="link"
+  data-coupon={coupon}
+>
+  Buy Now
+</a>

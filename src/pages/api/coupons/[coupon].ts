@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { XataClient } from '../../../xata';
 import { XATA_API_KEY, XATA_BRANCH } from 'astro:env/server';
 
+export const prerender = false;
 export const GET: APIRoute = async (context) => {
   const { coupon } = context.params;
   const xata = new XataClient({

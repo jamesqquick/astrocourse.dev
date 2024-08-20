@@ -1,5 +1,6 @@
 ---
 import type { Pricing } from '../types/courses';
+import BuyNowButton from './BuyNowButton.astro';
 import Price from './Price.astro';
 export interface Props {
   pricing: Pricing;
@@ -21,11 +22,7 @@ const { pricing } = Astro.props;
   <p class="text-xl text-gray-500 mb-4 text-center">
     {pricing.subheading}
   </p>
-  <Price
-    cost={pricing.cost}
-    coupon={pricing.coupon}
-    discount={pricing.discount}
-  />
+  <Price server:defer cost={pricing.cost} />
   <ul class="mb-4 flex flex-col gap-y-4">
     {
       pricing.bullets.map((bullet) => (
@@ -36,14 +33,7 @@ const { pricing } = Astro.props;
     }
   </ul>
 
-  <a
-    class={` text-white mb-2 w-full bg-gradient-to-r from-blue-800 to-purple-800 px-8 py-4 rounded-lg  text-sm sm:text-xl md:text-2xl text-center hover:scale-105 transition-transform inline-block duration-200`}
-    href={pricing.href}
-    data-podia-embed="link"
-    data-coupon={pricing.coupon}
-  >
-    Buy Now
-  </a>
+  <BuyNowButton server:defer href={pricing.href} />
   <p class="text-sm text-light text-gray-700 mb-4">
     *30 day money-back guarantee
   </p>
